@@ -32,6 +32,10 @@ export const InternalNavigator = TabNavigator({
 	},
 },
 	{
+		/*
+		For iOS, it is mandatory to define tabBarComponent as TabBarTop explicitly
+		in case the underline in active tab with indicatorStyle is required
+		*/
 		tabBarComponent: TabBarTop,
 		tabBarPosition: 'top',
 		swipeEnabled: true,
