@@ -34,11 +34,11 @@ export const RootNavigator = StackNavigator({
 			headerTintColor: '#fff',
 			headerStyle: {
 				backgroundColor: '#106bc8',
-
+				borderBottomWidth: 0
 			},
 			headerTitleStyle: {
 				fontSize: 20,
-				marginLeft:4,
+				marginLeft:6,
 				alignSelf: 'flex-start'
 			}
 		},
