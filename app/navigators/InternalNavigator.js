@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Button, AppRegistry } from 'react-native';
 import { TabNavigator, TabBarTop } from "react-navigation";
 import { TaskList, CategoryList } from './../components';
+import { styleConstant } from './../commonModules'
 
 export const InternalNavigator = TabNavigator({
 	Tasks: {
@@ -23,16 +24,16 @@ export const InternalNavigator = TabNavigator({
 	allowFontScaling: false,
 	tabBarOptions: {
 		labelStyle: {
-			fontSize: 15,
-			color: '#fff',
+			fontSize: styleConstant.tabNameFontSize,
+			color: styleConstant.textColor,
 			alignItems: 'center'
 		},
 		style: {
-			backgroundColor: '#106bc8',
+			backgroundColor: styleConstant.themeColor,
 			borderTopWidth: 0
 		},
 		indicatorStyle: {
-			backgroundColor: '#fff',
+			backgroundColor: styleConstant.activeTabUnderLineColor,
 			height: 3
 		}
 	}

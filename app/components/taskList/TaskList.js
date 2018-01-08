@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { Text } from 'react-native';
+import { TabDetailWrapper } from './../tabDetailWrapper/TabDetailWrapper';
+import { commonStyles, Icon, ActionButton, styleConstant } from './../../commonModules';
 
 export class TaskList extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View>
-				<Text>List of recent chats</Text>
-				<Button
-					onPress={() => navigate('Chat', { user: 'Kapil' })}
-					title="Chat with Lucy"
-				/>
-			</View>
+			<TabDetailWrapper>
+				<Text style={{ backgroundColor: 'transparent' }}>Task List</Text>
+				<ActionButton buttonColor={styleConstant.addTaskButtonColor}
+					icon={<Icon name={styleConstant.addTaskIconName} style={commonStyles.actionButtonIcon} />}/>
+			</TabDetailWrapper>
 		);
 	}
 }
+

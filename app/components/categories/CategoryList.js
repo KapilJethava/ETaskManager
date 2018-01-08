@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, Button, ImageBackground } from 'react-native';
-import ActionButton from 'react-native-action-button';
-import { tabStyles } from './../../assets/styles/sharedStyles';
+import { Text } from 'react-native';
+import { TabDetailWrapper} from './../tabDetailWrapper/TabDetailWrapper'
+import { commonStyles, Icon, ActionButton, styleConstant } from './../../commonModules';
 
 export class CategoryList extends React.Component {
 	render() {
 		return (
-			<ImageBackground source={require('./../../assets/images/bg.png')}
-				style={tabStyles.dataContainer}>
+			<TabDetailWrapper>
 				<Text style={{backgroundColor:'transparent'}}>Category List</Text>
-				<ActionButton
-					buttonColor="rgba(231,76,60,1)"
-				/>
-			</ImageBackground>
-
+				<ActionButton buttonColor={styleConstant.addCategoryButtonColor}
+					icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />} />
+			</TabDetailWrapper>
 		);
 	}
 }
