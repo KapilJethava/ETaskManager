@@ -3,11 +3,11 @@ import {
 	Text,
 	View,
 	Button,
-	AppRegistry,
-	StyleSheet
+	AppRegistry
 } from 'react-native';
-import { InternalNavigator } from './InternalNavigator'
 import { StackNavigator } from 'react-navigation';
+import { InternalNavigator } from './InternalNavigator'
+import { styleConstant } from './../commonModules'
 
 export class ChatScreen extends React.Component {
 
@@ -31,13 +31,13 @@ export const RootNavigator = StackNavigator({
 		navigationOptions: {
 			//headerLeft: (<Text style={{fontSize:20,flex:1,justifyContent:'center',fontWeight:'bold',color:'#fff'}}>ES Task Manager</Text>),
 			headerTitle: 'ES Task Manager',
-			headerTintColor: '#fff',
+			headerTintColor: styleConstant.textColor,
 			headerStyle: {
-				backgroundColor: '#106bc8',
+				backgroundColor: styleConstant.themeColor,
 				borderBottomWidth: 0
 			},
 			headerTitleStyle: {
-				fontSize: 20,
+				fontSize: styleConstant.appNameFontSize,
 				marginLeft:6,
 				alignSelf: 'flex-start'
 			}
@@ -52,9 +52,3 @@ export const RootNavigator = StackNavigator({
 });
 
 AppRegistry.registerComponent('RootNavigator', () => RootNavigator);
-
-const styles = StyleSheet.create({
-	rootheader: {
-		fontSize: 20
-	}
-});
