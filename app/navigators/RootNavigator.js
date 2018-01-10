@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { InternalNavigator } from './InternalNavigator'
-import { styleConstant } from './../commonModules'
+import { styleConstant, globalTokens } from './../commonModules'
 
 export class ChatScreen extends React.Component {
 
@@ -30,7 +30,7 @@ export const RootNavigator = StackNavigator({
 		screen: InternalNavigator,
 		navigationOptions: {
 			//headerLeft: (<Text style={{fontSize:20,flex:1,justifyContent:'center',fontWeight:'bold',color:'#fff'}}>ES Task Manager</Text>),
-			headerTitle: 'ES Task Manager',
+			headerTitle: globalTokens.applicationTitle,
 			headerTintColor: styleConstant.textColor,
 			headerStyle: {
 				backgroundColor: styleConstant.themeColor,
