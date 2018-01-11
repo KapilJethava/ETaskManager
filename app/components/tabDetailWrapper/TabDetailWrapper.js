@@ -6,26 +6,27 @@ export class TabDetailWrapper extends React.Component {
 	render() {
 		return (
 			<View style={styles.dataContainer}>
-				<Image source={require('./../../assets/images/bg.png')}
+				{/* <Image source={require('./../../assets/images/bg.png')}
 					resizeMode='repeat'
-					style={[{ opacity: 0.3 }, styles.dataWrapper]} />
-				<View style={styles.dataWrapper}>
+					style={[{ opacity: 0.3 }, styles.dataWrapper]} /> */}
+				{/* <View style={styles.dataWrapper}> */}
 					{this.props.children}
-				</View>
+				{/* </View> */}
 			</View>
 		);
 	}
 }
 const styles = StyleSheet.create({
 	dataContainer: {
-		flex: 1
+		flex: 1,
+		backgroundColor:'#fff'
 	},
-	dataWrapper: {
-		position: 'absolute',
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0
-	}
+	// dataWrapper: {
+	// 	position: 'absolute',
+	// 	top: 0,
+	// 	left: 0,
+	// 	right: 0,
+	// 	bottom: 0
+	// }
 });
 
