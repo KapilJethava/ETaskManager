@@ -5,6 +5,17 @@ import { commonStyles, Icon, ActionButton, styleConstant, layoutAttrib } from '.
 import { mockData } from './../../MockData';
 
 export class CategoryListComponent extends React.Component {
+	constructor(props){
+		super(props)
+		//folowing block is temporary to set task ids to category object
+		mockData.taskList.forEach((tl) => {
+			let cId = tl.categoryId;
+			let c = mockData.catList.find((ct) => ct.key === cId);
+			if (c) {
+				c.taskIds.push(tl.key);
+			}
+		});
+	}
 	render() {
 		return (
 			<TabWrapperComponent>
@@ -24,7 +35,7 @@ export class CategoryListComponent extends React.Component {
 										</View>
 									</View>
 									<View style={styles.countContainer}>
-										<Text style={styles.countText}>{category.numberOfTasks + ' Tasks'}</Text>
+										<Text style={styles.countText}>{category.taskCount + ' Tasks'}</Text>
 									</View>
 								</View>
 							)
@@ -47,10 +58,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	categoryContainer: {
-		padding:10,
-		// borderWidth: 1,
-		// borderColor: 'red',
-		// borderStyle:'dotted'
+		padding:10
 	},
 	countContainer:{
 		position:'absolute',

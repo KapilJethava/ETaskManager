@@ -7,10 +7,22 @@ export class TaskComponent extends React.Component {
 		super(props);
 	}
 	render() {
+		const category = this.props.category;
 		return (
 			<View style={styles.contentWrapper}>
 				<View>
-					<Icon name='home' style={styles.catIcon}/>
+					<View style={{
+						position: 'absolute',
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						borderColor: 'blue', borderWidth: 1, borderStyle: 'dotted', backgroundColor:category.color,
+						opacity: 0.1
+					}}></View>
+					<Icon name={category.iconName}
+						style={[styles.catIcon,{color:category.color, borderColor: category.color}]}/>
+
 				</View>
 				<View style={styles.taskData}>
 					<View style={styles.row1}>
@@ -37,12 +49,11 @@ const styles = StyleSheet.create({
 	catIcon:{
 		fontSize:30,
 		borderWidth:1,
-		borderColor:'#ddd',
 		padding:6,
 		borderRadius:2,
-		color: styleConstant.themeColor,
 		width:44,
-		height:44
+		height:44,
+		backgroundColor:'transparent'
 	},
 	taskData:{
 		flex:1,
