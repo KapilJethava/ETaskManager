@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import ActionButton from 'react-native-action-button';
 
-export class TabDetailWrapper extends React.Component {
+export class TabWrapperComponent extends React.Component {
 	render() {
 		return (
 			<View style={styles.dataContainer}>
-				<Image source={require('./../../assets/images/bg.png')}
+				{/* <Image source={require('./../../assets/images/bg.png')}
 					resizeMode='repeat'
-					style={[{ opacity: 0.3 }, styles.dataWrapper]} />
+					style={[{ opacity: 0.3 }, styles.dataWrapper]} /> */}
 				<View style={styles.dataWrapper}>
 					{this.props.children}
 				</View>
@@ -18,7 +18,8 @@ export class TabDetailWrapper extends React.Component {
 }
 const styles = StyleSheet.create({
 	dataContainer: {
-		flex: 1
+		flex: 1,
+		backgroundColor:'#fff'
 	},
 	dataWrapper: {
 		position: 'absolute',
