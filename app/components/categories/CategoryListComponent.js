@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, View, FlatList, Text, StyleSheet } from 'react-native';
 import { TabWrapperComponent } from './../tabWrapper/TabWrapperComponent';
 import { commonStyles, Icon, ActionButton, styleConstant, layoutAttrib } from './../../commonModules';
+import { mockData } from './../../MockData';
 
 export class CategoryListComponent extends React.Component {
 	render() {
@@ -25,7 +26,6 @@ export class CategoryListComponent extends React.Component {
 									<View style={styles.countContainer}>
 										<Text style={styles.countText}>{category.numberOfTasks + ' Tasks'}</Text>
 									</View>
-
 								</View>
 							)
 						}
@@ -37,34 +37,7 @@ export class CategoryListComponent extends React.Component {
 		);
 	}
 }
-class CategoryModel {
-	constructor(key, name, iconName, color, taskCount) {
-		this.key = key;
-		this.name = name;
-		this.iconName = iconName;
-		this.color = color;
-		this.numberOfTasks = taskCount;
-		this.description = "test test test test";
-	}
-}
-const mockData = {
-	catList: [
-		new CategoryModel(1, 'Home', 'home', 'rgb(66, 133, 244)', 10),
-		new CategoryModel(2, 'Work', 'work', 'rgb(235, 67, 53)', 12),
-		new CategoryModel(3, 'Call', 'call', 'rgb(52, 168, 83)', 14),
-		new CategoryModel(4, 'Billing', 'payment', '#E91E63', 4),
-		new CategoryModel(5, 'Home', 'home', '#00695C', 10),
-		new CategoryModel(6, 'Work', 'work', '#424242', 12),
-		new CategoryModel(7, 'Call', 'call', '#37474F', 14),
-		new CategoryModel(8, 'Billing', 'payment', '#D84315', 4),
-		// new CategoryModel(5, , 5),
-		// new CategoryModel(6, 'Demonstrate your application to Simon', 'Demonstrate your application to Simon', '10:00 PM', 1),
-		// new CategoryModel(7, 'Push all application code to git', 'Push all application code to git', '10:00 PM', 2),
-		// new CategoryModel(8, 'Manage CRUD for tasks', 'Manage CRUD for tasks', '10:00 PM', 3),
-		// new CategoryModel(9, 'Prepare awesome template for your task', 'Prepare awesome template for your task', '10:00 PM', 4),
-		// new CategoryModel(10, 'Work on memory and will power', 'Work on memory and will power', '10:00 PM', 5)
-	]
-};
+
 const styles = StyleSheet.create({
 	catListContainer: {
 		flex: 1,
