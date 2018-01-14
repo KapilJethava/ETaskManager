@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
 	contentWrapper:{
 		flex:1,
 		flexDirection: 'row',
-		backgroundColor: '#FFF',
 		padding: 7
 	},
 	catIcon:{

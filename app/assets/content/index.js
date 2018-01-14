@@ -1,2 +1,2 @@
-export { styleConstant } from './config';
+export { styleConstant, layoutAttrib } from './config';
 export { globalTokens } from './text';

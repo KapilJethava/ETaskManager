@@ -5,12 +5,13 @@ import { TaskList, CategoryList } from './../components';
 import { styleConstant } from './../commonModules'
 
 export const InternalNavigator = TabNavigator({
-	Tasks: {
-		screen: TaskList
-	},
 	Categories: {
 		screen: CategoryList
+	},
+	Tasks: {
+		screen: TaskList
 	}
+
 },
 {
 	/*
