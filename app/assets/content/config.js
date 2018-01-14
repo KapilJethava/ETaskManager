@@ -18,6 +18,12 @@ export const layoutAttrib = {
 	height: Dimensions.get('window').height,
 	//isLandscape: (layoutAttrib.height <= layoutAttrib.width)
 };
+export const priorityEnum = {
+	0: { color: 'grey', identifier: 'None' },
+	1: { color: 'red', identifier: 'High' },
+	2: { color: 'blue', identifier: 'Medium' },
+	3: { color: 'green', identifier: 'Low' }
+};
 
 export const appConfig = {
 
