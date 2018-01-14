@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import ActionButton from 'react-native-action-button';
 
-export class TabDetailWrapper extends React.Component {
+export class TabWrapperComponent extends React.Component {
 	render() {
 		return (
 			<View style={styles.dataContainer}>

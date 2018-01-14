@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { ScrollView, View, FlatList, Text, StyleSheet } from 'react-native';
-import { TabDetailWrapper } from './../tabDetailWrapper/TabDetailWrapper'
+import { TabWrapperComponent } from './../tabWrapper/TabWrapperComponent';
 import { commonStyles, Icon, ActionButton, styleConstant, layoutAttrib } from './../../commonModules';
-import { Category } from './Category';
 
-export class CategoryList extends React.Component {
+export class CategoryListComponent extends React.Component {
 	render() {
 		return (
-			<TabDetailWrapper>
+			<TabWrapperComponent>
 				<ScrollView>
 					<View style={styles.catListContainer}>
 						{
@@ -34,7 +33,7 @@ export class CategoryList extends React.Component {
 				</ScrollView>
 				<ActionButton buttonColor={styleConstant.addCategoryButtonColor}
 					icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />} />
-			</TabDetailWrapper>
+			</TabWrapperComponent>
 		);
 	}
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { commonStyles, Icon, ActionButton, styleConstant } from './../../commonModules';
 
-export class Task extends React.Component {
+export class TaskComponent extends React.Component {
 	constructor(props){
 		super(props);
 	}

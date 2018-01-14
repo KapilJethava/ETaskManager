@@ -1,2 +1,2 @@
-export { CategoryList } from './categories/CategoryList';
-export { TaskList } from './taskList/TaskList';
+export { CategoryListComponent } from './categories/CategoryListComponent';
+export { TaskListComponent } from './taskList/TaskListComponent';

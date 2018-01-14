@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { ScrollView, Text, FlatList } from 'react-native';
-import { TabDetailWrapper } from './../tabDetailWrapper/TabDetailWrapper';
+import { TabWrapperComponent } from './../tabWrapper/TabWrapperComponent';
 import { commonStyles, Icon, ActionButton, styleConstant } from './../../commonModules';
-import { Task } from './Task';
+import { TaskComponent } from './TaskComponent';
 
-export class TaskList extends React.Component {
+export class TaskListComponent extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<TabDetailWrapper>
+			<TabWrapperComponent>
 				<ScrollView>
 					<FlatList
 						data={mockData.taskList}
-						renderItem={({ item }) => <Task task={item} />}
+						renderItem={({ item }) => <TaskComponent task={item} />}
 					/>
 				</ScrollView>
 				{/* <Text style={{ backgroundColor: 'transparent' }}>Task List</Text> */}
 				<ActionButton buttonColor={styleConstant.addTaskButtonColor}
 					icon={<Icon name={styleConstant.addTaskIconName} style={commonStyles.actionButtonIcon} />} />
-			</TabDetailWrapper>
+			</TabWrapperComponent>
 		);
 	}
 }
