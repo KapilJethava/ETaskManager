@@ -5,7 +5,7 @@ import { commonStyles } from './../../commonModules';
 export class TabWrapperComponent extends React.Component {
 	render() {
 		return (
-			<View style={styles.dataContainer}>
+			<View style={[commonStyles.generalBG, commonStyles.flex]}>
 				{/* <Image source={require('./../../assets/images/bg.png')}
 					resizeMode='repeat'
 					style={[{ opacity: 0.3 }, styles.dataWrapper]} /> */}
@@ -16,10 +16,3 @@ export class TabWrapperComponent extends React.Component {
 		);
 	}
 }
-const styles = StyleSheet.create({
-	dataContainer: {
-		flex: 1,
-		backgroundColor:'#fff'
-	}
-});
-

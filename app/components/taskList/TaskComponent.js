@@ -9,7 +9,7 @@ export class TaskComponent extends React.Component {
 	render() {
 		const category = this.props.category;
 		return (
-			<View style={styles.contentWrapper}>
+			<View style={[commonStyles.flex,styles.contentWrapper]}>
 				<View>
 					<View
 						style={[commonStyles.stretchToParent, commonStyles.catBgOpacity,
@@ -18,15 +18,15 @@ export class TaskComponent extends React.Component {
 						style={[styles.catIcon,{color:category.color, borderColor: category.color}]}/>
 
 				</View>
-				<View style={styles.taskData}>
-					<View style={styles.row1}>
-						<Text numberOfLines={1} style={styles.title}>{this.props.task.title}</Text>
+				<View style={[commonStyles.flex,styles.taskData]}>
+					<View style={[commonStyles.flex, styles.row1]}>
+						<Text numberOfLines={1} style={[commonStyles.flex, styles.title]}>{this.props.task.title}</Text>
 						<Text style={styles.time}>{this.props.task.time}</Text>
 					</View>
-					<View style={styles.row2}>
-					<Text numberOfLines={1} style={styles.desc}>{this.props.task.description}</Text>
+					<View style={[commonStyles.flex, styles.row2]}>
+						<Text numberOfLines={1} style={[commonStyles.flex,styles.desc]}>{this.props.task.description}</Text>
 						<View style={[styles.priorityContainer, { backgroundColor:this.props.task.priority.color }]}>
-							<Text style={styles.priority}>{' '}</Text>
+							<Text style={[commonStyles.flex,styles.priority]}>{' '}</Text>
 						</View>
 					</View>
 				</View>
@@ -36,7 +36,6 @@ export class TaskComponent extends React.Component {
 }
 const styles = StyleSheet.create({
 	contentWrapper:{
-		flex:1,
 		flexDirection: 'row',
 		padding: 7
 	},
@@ -50,21 +49,17 @@ const styles = StyleSheet.create({
 		backgroundColor:'transparent'
 	},
 	taskData:{
-		flex:1,
 		flexDirection:'column',
 		marginLeft:10
 	},
 	row1:{
-		flex:1,
 		flexDirection: 'row',
 	},
 	row2:{
-		flex: 1,
 		flexDirection: 'row',
 		marginTop:2
 	},
 	title:{
-		flex:1,
 		fontSize:14,
 		color: '#000',
 		fontWeight:'bold',
@@ -76,7 +71,6 @@ const styles = StyleSheet.create({
 		color:styleConstant.themeColor
 	},
 	desc: {
-		flex: 1,
 		fontSize:12,
 		alignSelf:'flex-start'
 	},
@@ -90,7 +84,6 @@ const styles = StyleSheet.create({
 	priority:{
 		fontSize: 11,
 		color: '#fff',
-		flex:1,
 		alignSelf:'center'
 	}
 });

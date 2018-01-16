@@ -19,6 +19,12 @@ export const commonStyles = StyleSheet.create({
 	},
 	catBgOpacity:{
 		opacity: 0.1
+	},
+	generalBG:{
+		backgroundColor:'#fff'
+	},
+	flex:{
+		flex:1
 	}
 });
 

@@ -10,7 +10,7 @@ export class AddCategoryComponent extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View>
+			<View style={[commonStyles.flex,commonStyles.generalBG]}>
 
 			</View>
 		);
