@@ -16,7 +16,9 @@ export class CategoryListComponent extends React.Component {
 			}
 		});
 	}
+
 	render() {
+		const { navigate } = this.props.navigation;
 		return (
 			<TabWrapperComponent>
 				<ScrollView>
@@ -43,7 +45,10 @@ export class CategoryListComponent extends React.Component {
 					</View>
 				</ScrollView>
 				<ActionButton buttonColor={styleConstant.addCategoryButtonColor}
-					icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />} />
+					icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />}
+					onPress={() =>
+						navigate('AddCategory', { })
+					}/>
 			</TabWrapperComponent>
 		);
 	}
