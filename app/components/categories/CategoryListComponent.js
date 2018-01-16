@@ -27,13 +27,12 @@ export class CategoryListComponent extends React.Component {
 							mockData.catList.map((category) =>
 								<View style={styles.categoryContainer}>
 									<View style={[styles.contentWrapper,{borderColor: category.color}]}>
-										<View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, backgroundColor: category.color }}></View>
+										<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: category.color }]}></View>
 										<View style={styles.iconContainer}>
 											<Icon name={category.iconName} style={[styles.catIcon, { color: category.color }]} />
 										</View>
 										<View style={styles.contentContainer}>
 											<Text style={styles.catName}>{category.name}</Text>
-											{/* <Text numberOfLines={2} style={styles.desc}>{'tasks related to \npersonal things home'}</Text> */}
 										</View>
 									</View>
 									<View style={styles.countContainer}>
@@ -110,11 +109,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		alignSelf:'center',
 		backgroundColor: 'transparent'
-	},
-	desc:{
-		flex: 1,
-		fontSize: 10,
-		alignSelf: 'center'
 	}
-
 });

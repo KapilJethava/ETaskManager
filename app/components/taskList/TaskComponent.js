@@ -11,15 +11,9 @@ export class TaskComponent extends React.Component {
 		return (
 			<View style={styles.contentWrapper}>
 				<View>
-					<View style={{
-						position: 'absolute',
-						top: 0,
-						left: 0,
-						right: 0,
-						bottom: 0,
-						borderColor: 'blue', borderWidth: 1, borderStyle: 'dotted', backgroundColor:category.color,
-						opacity: 0.1
-					}}></View>
+					<View
+						style={[commonStyles.stretchToParent, commonStyles.catBgOpacity,
+							{ backgroundColor: category.color}]}></View>
 					<Icon name={category.iconName}
 						style={[styles.catIcon,{color:category.color, borderColor: category.color}]}/>
 
