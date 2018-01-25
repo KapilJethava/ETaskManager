@@ -30,6 +30,16 @@ export const commonStyles = StyleSheet.create({
 	},
 	flex:{
 		flex:1
-	}
+	},
+	textBox: {
+		fontSize: 18,
+		paddingLeft: 7,
+		height:35
+	},
+	borderAll: {
+		borderWidth: 1,
+		borderColor: '#aaa',
+		borderRadius: 2
+	},
 });
 
