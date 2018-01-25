@@ -13,8 +13,10 @@ import {
 	} from './assets/content';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import _ from 'lodash';
 
 export {
+	_,
 	ActionButton,
 	categoryColors,
 	commonStyles,
