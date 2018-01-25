@@ -35,7 +35,7 @@ export class CategoryListComponent extends React.Component {
 											<Text style={styles.catName}>{category.name}</Text>
 										</View>
 									</View>
-									<View style={styles.countContainer}>
+									<View style={[commonStyles.topRightCorner, styles.countContainer]}>
 										<Text style={styles.countText}>{category.taskCount + ' Tasks'}</Text>
 									</View>
 								</View>
@@ -65,9 +65,6 @@ const styles = StyleSheet.create({
 		padding:10
 	},
 	countContainer:{
-		position:'absolute',
-		right:0,
-		top:0,
 		borderWidth: 1,
 		borderRadius:3,
 		borderColor: 'rgb(251, 188, 5)'
