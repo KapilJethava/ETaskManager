@@ -19,7 +19,7 @@ export class SearchInputComponent extends React.Component {
 
 	render() {
 		return (
-			<View style={[styles.container, commonStyles.borderAll, (this.props.style ? { ...this.props.style } : null)]}>
+			<View style={[styles.container, commonStyles.borderAll, commonStyles.generalBG, (this.props.style ? { ...this.props.style } : null)]}>
 				<TextInput
 					style={[commonStyles.flex, commonStyles.textBox]}
 					onChangeText={(text) => { this.textChange(text) }}

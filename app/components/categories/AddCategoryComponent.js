@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, View, StyleSheet, Button, TouchableOpacity, TextInput, TouchableHighlight } from 'react-native';
+import { Image, ScrollView, Text, View, StyleSheet, Button, TouchableOpacity, TextInput, TouchableHighlight } from 'react-native';
 import { _, commonStyles, Icon, ActionButton, styleConstant, categoryColors, iconNames, layoutAttrib } from './../../commonModules';
 import { FadeIn } from './../core/animations';
 import { SearchInputComponent } from './../core';
@@ -39,10 +39,13 @@ export class AddCategoryComponent extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View style={[commonStyles.flex, commonStyles.generalBG, styles.fcolumn, styles.commonPadding]}>
+			<View style={[commonStyles.flex, styles.fcolumn, styles.commonPadding]}>
+				<Image source={require('./../../assets/images/bg.png')}
+					resizeMode='repeat'
+					style={[{ opacity: 0.3 }, commonStyles.stretchToParent]} />
 				<View style={[styles.commonPadding]}>
 					<TextInput
-						style={[commonStyles.textBox, commonStyles.borderAll]}
+						style={[commonStyles.textBox, commonStyles.generalBG, commonStyles.borderAll]}
 						onChangeText={(catName) => this.setState({ catName })}
 						placeholder={'Category Name'}
 						value={this.state.catName}
@@ -60,7 +63,7 @@ export class AddCategoryComponent extends React.Component {
 									{
 										this.state.filteredIcons.map((iconName) =>
 											<TouchableHighlight onPress={() => this.setState({ iconName })}>
-												<View style={styles.iconTile}>
+												<View style={[styles.iconTile, commonStyles.generalBG]}>
 													<Icon name={iconName} style={styles.icon} />
 												</View>
 											</TouchableHighlight>
@@ -81,6 +84,7 @@ export class AddCategoryComponent extends React.Component {
 											categoryColors.map((color) =>
 												<TouchableHighlight onPress={() => this.setState({ color })}>
 													<View style={[styles.iconTile, { borderColor: color }]}>
+														<View style={[commonStyles.generalBG, commonStyles.stretchToParent]} />
 														<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: color }]}></View>
 														<Icon name={this.state.iconName} style={[styles.icon, { color: color }]} />
 														{
@@ -88,7 +92,7 @@ export class AddCategoryComponent extends React.Component {
 																?
 																<View style={[commonStyles.topRightCorner]}>
 																	<FadeIn duration={400}>
-																		<Icon name="check" style={{ color: '#fff', fontSize: 35, padding: 3 }} />
+																		<Icon name="check" style={{ color: 'red', fontSize: 40 }} />
 																	</FadeIn>
 																</View>
 																: null
@@ -137,7 +141,7 @@ const styles = StyleSheet.create({
 	},
 	icon: {
 		fontSize: 38,
-		color: '#aaa',
+		color: '#888',
 		alignSelf: 'center',
 	},
 	iconTile: {
