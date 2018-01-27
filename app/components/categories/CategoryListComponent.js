@@ -16,7 +16,9 @@ export class CategoryListComponent extends React.Component {
 			}
 		});
 	}
+
 	render() {
+		const { navigate } = this.props.navigation;
 		return (
 			<TabWrapperComponent>
 				<ScrollView>
@@ -25,16 +27,15 @@ export class CategoryListComponent extends React.Component {
 							mockData.catList.map((category) =>
 								<View style={styles.categoryContainer}>
 									<View style={[styles.contentWrapper,{borderColor: category.color}]}>
-										<View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, backgroundColor: category.color }}></View>
+										<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: category.color }]}></View>
 										<View style={styles.iconContainer}>
 											<Icon name={category.iconName} style={[styles.catIcon, { color: category.color }]} />
 										</View>
 										<View style={styles.contentContainer}>
 											<Text style={styles.catName}>{category.name}</Text>
-											{/* <Text numberOfLines={2} style={styles.desc}>{'tasks related to \npersonal things home'}</Text> */}
 										</View>
 									</View>
-									<View style={styles.countContainer}>
+									<View style={[commonStyles.topRightCorner, styles.countContainer]}>
 										<Text style={styles.countText}>{category.taskCount + ' Tasks'}</Text>
 									</View>
 								</View>
@@ -43,7 +44,10 @@ export class CategoryListComponent extends React.Component {
 					</View>
 				</ScrollView>
 				<ActionButton buttonColor={styleConstant.addCategoryButtonColor}
-					icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />} />
+					icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />}
+					onPress={() =>
+						navigate('AddCategory', { })
+					}/>
 			</TabWrapperComponent>
 		);
 	}
@@ -61,9 +65,6 @@ const styles = StyleSheet.create({
 		padding:10
 	},
 	countContainer:{
-		position:'absolute',
-		right:0,
-		top:0,
 		borderWidth: 1,
 		borderRadius:3,
 		borderColor: 'rgb(251, 188, 5)'
@@ -105,11 +106,5 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		alignSelf:'center',
 		backgroundColor: 'transparent'
-	},
-	desc:{
-		flex: 1,
-		fontSize: 10,
-		alignSelf: 'center'
 	}
-
 });

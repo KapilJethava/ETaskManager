@@ -6,24 +6,9 @@ import {
 	AppRegistry
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { InternalNavigator } from './InternalNavigator'
-import { styleConstant, globalTokens } from './../commonModules'
-
-export class ChatScreen extends React.Component {
-
-	static navigationOptions = ({ navigation }) => ({
-		//title: `Chat with ${navigation.state.params.user}`,
-	});
-	render() {
-		const { params } = this.props.navigation.state;
-		return (
-			<View>
-				<Text>Chat with </Text>
-			</View>
-		);
-	}
-}
-
+import { InternalNavigator } from './InternalNavigator';
+import { styleConstant, globalTokens, Icon} from './../commonModules';
+import { AddCategoryComponent } from './../components';
 
 export const RootNavigator = StackNavigator({
 	Home: {
@@ -43,11 +28,20 @@ export const RootNavigator = StackNavigator({
 			}
 		},
 	},
-	Chat: {
-		screen: ChatScreen,
-		navigationOptions: {
-			headerTitle: 'Chat with ...'
-		}
+	AddCategory: {
+		screen: AddCategoryComponent,
+		navigationOptions:({navigation})=> ({
+			headerTitle: 'Add Category ',
+			headerTintColor: styleConstant.textColor,
+			headerLeft: <Icon name={'arrow-back'} style={{ fontSize: 24, color: styleConstant.textColor, marginLeft: 10 }} onPress={() => { navigation.goBack() }}/>,
+			headerStyle: {
+				backgroundColor: styleConstant.themeColor,
+				borderBottomWidth: 0
+			},
+			headerTitleStyle: {
+				fontSize: 18
+			}
+		})
 	}
 });
 
