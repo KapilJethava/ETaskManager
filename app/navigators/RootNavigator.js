@@ -45,4 +45,4 @@ export const RootNavigator = StackNavigator({
 	}
 });
 
-AppRegistry.registerComponent('RootNavigator', () => RootNavigator);
+AppRegistry.registerComponent('TaskManager', () => RootNavigator);
