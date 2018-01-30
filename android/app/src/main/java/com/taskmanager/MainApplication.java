@@ -1,4 +1,4 @@
-package com.etaskmanager;
+package com.taskmanager;
 
 import android.app.Application;
 
