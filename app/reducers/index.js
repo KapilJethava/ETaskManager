@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import { DATA_AVAILABLE } from "../actions/" //Import the actions types constant we defined in our actions
+import { GET_CATEGORIES } from "../actions/" //Import the actions types constant we defined in our actions
 
-let dataState = { data: [], loading: true };
+let defaultState = { categories: [], loading: true };
 
-const dataReducer = (state = dataState, action) => {
+const categoryReducer = (state = defaultState, action) => {
 	switch (action.type) {
-		case DATA_AVAILABLE:
-			state = Object.assign({}, state, { data: action.data, loading: false });
+		case GET_CATEGORIES:
+			state = Object.assign({}, state, { categories: action.categories, loading: false });
 			return state;
 		default:
 			return state;
@@ -16,7 +16,7 @@ const dataReducer = (state = dataState, action) => {
 
 // Combine all the reducers
 const rootReducer = combineReducers({
-	dataReducer
+	categoryReducer,
 	// ,[ANOTHER REDUCER], [ANOTHER REDUCER] ....
 })
 

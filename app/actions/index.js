@@ -1,18 +1,16 @@
-export const DATA_AVAILABLE = 'DATA_AVAILABLE';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+import { mockData } from '../MockData';
 
-//Import the sample data
-import Data from '../instructions.json';
-
-export function getData() {
+export function getCategories() {
 	return (dispatch) => {
-
-		//Make API Call
-		//For this example, I will be using the sample data in the json file
-		//delay the retrieval [Sample reasons only]
-		setTimeout(() => {
-			var data = Data.instructions;
-			dispatch({ type: DATA_AVAILABLE, data: data });
-		}, 2000);
-
+		var data = mockData.catList.slice(0);
+		mockData.taskList.forEach((tl) => {
+			let cId = tl.categoryId;
+			let c = data.find((ct) => ct.key === cId);
+			if (c) {
+				c.taskIds.push(tl.key);
+			}
+		});
+		dispatch({ type: GET_CATEGORIES, categories: data });
 	};
 }
