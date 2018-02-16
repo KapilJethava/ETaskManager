@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { ScrollView, View, FlatList, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { TabWrapperComponent } from './../tabWrapper/TabWrapperComponent';
 import { commonStyles, Icon, ActionButton, styleConstant, layoutAttrib } from './../../commonModules';
-import{getCategories} from '../../actions';
+import { getCategories } from '../../actions';
 
 class CategoryListComponent extends React.Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 	}
 
@@ -16,7 +16,7 @@ class CategoryListComponent extends React.Component {
 
 	render() {
 		const { navigate } = this.props.navigation;
-		if(this.props.loading){
+		if (this.props.loading) {
 			return (<View style={styles.activityIndicatorContainer}>
 				<ActivityIndicator
 					animating={true}
@@ -59,9 +59,9 @@ class CategoryListComponent extends React.Component {
 		}
 	}
 }
-function mapStateToProps({categoryReducer}, props) {
+function mapStateToProps({ categoryReducer }, props) {
 	return {
-		categories:categoryReducer.categories,
+		categories: categoryReducer.categories,
 		loading: categoryReducer.loading
 	}
 }
@@ -88,21 +88,21 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	categoryContainer: {
-		padding:10
+		padding: 10
 	},
-	countContainer:{
+	countContainer: {
 		borderWidth: 1,
-		borderRadius:3,
+		borderRadius: 3,
 		borderColor: 'rgb(251, 188, 5)'
 	},
-	countText:{
-		backgroundColor:'rgb(251, 188, 5)',
-		color:'blue',
-		fontSize:10
+	countText: {
+		backgroundColor: 'rgb(251, 188, 5)',
+		color: 'blue',
+		fontSize: 10
 	},
-	contentWrapper:{
-		flex:1,
-		flexDirection:'column',
+	contentWrapper: {
+		flex: 1,
+		flexDirection: 'column',
 		borderWidth: 1,
 		borderColor: '#aaa',
 		borderRadius: 3,
@@ -110,27 +110,27 @@ const styles = StyleSheet.create({
 	iconContainer: {
 		flex: 1,
 		padding: 20,
-		paddingTop:10,
+		paddingTop: 10,
 		paddingBottom: 0,
 		justifyContent: 'center',
 		alignContent: 'center',
-		backgroundColor:'transparent'
+		backgroundColor: 'transparent'
 	},
 	catIcon: {
 		fontSize: 40,
 		color: styleConstant.themeColor,
 		borderColor: 'red',
-		alignSelf:'center'
+		alignSelf: 'center'
 	},
-	contentContainer:{
-		flex:1,
-		padding:5,
-		paddingBottom:10
+	contentContainer: {
+		flex: 1,
+		padding: 5,
+		paddingBottom: 10
 	},
 	catName: {
-		flex:1,
+		flex: 1,
 		fontSize: 14,
-		alignSelf:'center',
+		alignSelf: 'center',
 		backgroundColor: 'transparent'
 	}
 });
