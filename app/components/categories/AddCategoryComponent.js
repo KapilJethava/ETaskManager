@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Image, ScrollView, Text, View, StyleSheet, Button, TouchableOpacity, TextInput, TouchableHighlight } from 'react-native';
 import { _, commonStyles, Icon, ActionButton, styleConstant, categoryColors, iconNames, layoutAttrib } from './../../commonModules';
 import { FadeIn } from './../core/animations';
-import { SearchInputComponent } from './../core';
+import { InputComponent } from './../core';
 
 export class AddCategoryComponent extends React.Component {
 	constructor(props) {
@@ -41,21 +41,28 @@ export class AddCategoryComponent extends React.Component {
 		return (
 			<View style={[commonStyles.flex, styles.fcolumn, styles.commonPadding]}>
 				<Image source={require('./../../assets/images/bg.png')}
-					resizeMode='repeat'
 					style={[{ opacity: 0.3 }, commonStyles.stretchToParent]} />
 				<View style={[styles.commonPadding]}>
-					<TextInput
+					<InputComponent onTextChange={(catName) => this.setState({ catName })}
+									value={this.state.catName}
+									placeholder={'Category Name'}/>
+					{/* <TextInput
+						underlineColorAndroid='transparent'
+						autoCorrect={false}
 						style={[commonStyles.textBox, commonStyles.generalBG, commonStyles.borderAll]}
 						onChangeText={(catName) => this.setState({ catName })}
 						placeholder={'Category Name'}
 						value={this.state.catName}
-					/>
+					/> */}
 				</View>
 
 				<View style={[commonStyles.flex]}>
 					<View style={[commonStyles.flex, styles.marginBottom, styles.fcolumn]}>
 						<View style={[styles.commonPadding]}>
-							<SearchInputComponent onTextChange={(text)=>this.filterIcons(text)} />
+							<InputComponent showIcon={true}
+									onTextChange={(text)=>this.filterIcons(text)}
+									value={this.state.iconSearchText}
+									placeholder={'Search Icon'}/>
 						</View>
 						<View style={[commonStyles.flex, styles.noPadTop, commonStyles.borderAll]}>
 							<ScrollView>

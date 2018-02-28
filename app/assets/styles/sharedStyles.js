@@ -34,7 +34,8 @@ export const commonStyles = StyleSheet.create({
 	textBox: {
 		fontSize: 18,
 		paddingLeft: 7,
-		height:35
+		borderWidth:0,
+
 	},
 	borderAll: {
 		borderWidth: 1,

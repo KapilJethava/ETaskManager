@@ -1,1 +1,1 @@
-export { SearchInputComponent } from './searchInput/searchInputComponent';
+export { InputComponent } from './input/inputComponent';
