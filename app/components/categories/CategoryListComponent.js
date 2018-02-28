@@ -30,8 +30,8 @@ class CategoryListComponent extends React.Component {
 					<ScrollView>
 						<View style={styles.catListContainer}>
 							{
-								this.props.categories && this.props.categories.map((category) =>
-									<View style={styles.categoryContainer}>
+								this.props.categories.map((category, i) =>
+									<View style={styles.categoryContainer} key={i}>
 										<View style={[styles.contentWrapper, { borderColor: category.color }]}>
 											<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: category.color }]}></View>
 											<View style={styles.iconContainer}>
@@ -42,7 +42,7 @@ class CategoryListComponent extends React.Component {
 											</View>
 										</View>
 										<View style={[commonStyles.topRightCorner, styles.countContainer]}>
-											<Text style={styles.countText}>{category.taskCount + ' Tasks'}</Text>
+											<Text style={styles.countText}>{category.taskIds.length + ' Tasks'}</Text>
 										</View>
 									</View>
 								)
@@ -50,7 +50,7 @@ class CategoryListComponent extends React.Component {
 						</View>
 					</ScrollView>
 					<ActionButton buttonColor={styleConstant.addCategoryButtonColor}
-						icon={<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />}
+						renderIcon={(active) => (<Icon name={styleConstant.addCategoryIconName} style={commonStyles.actionButtonIcon} />)}
 						onPress={() =>
 							navigate('AddCategory', {})
 						} />
