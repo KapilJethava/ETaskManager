@@ -1,6 +1,5 @@
 import {StyleSheet} from 'react-native';
 import {styleConstant, layoutAttrib} from '../../commonModules';
-import { CategoryModel } from '../../models';
 
 const constants = {
 	layoutWidth: layoutAttrib.width,
