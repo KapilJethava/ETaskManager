@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import {
-	Text,
-	View,
-	Button,
 	AppRegistry
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
 import { InternalNavigator } from './InternalNavigator';
 import { styleConstant, globalTokens, Icon} from './../commonModules';
-import { AddCategoryComponent } from './../components';
+import CategoryComponent from '../screens/category/category.component';
 
 export const RootNavigator = StackNavigator({
 	Home: {
 		screen: InternalNavigator,
 		navigationOptions: {
-			//headerLeft: (<Text style={{fontSize:20,flex:1,justifyContent:'center',fontWeight:'bold',color:'#fff'}}>ES Task Manager</Text>),
 			headerTitle: globalTokens.applicationTitle,
 			headerTintColor: styleConstant.textColor,
 			headerStyle: {
@@ -29,7 +26,7 @@ export const RootNavigator = StackNavigator({
 		},
 	},
 	AddCategory: {
-		screen: AddCategoryComponent,
+		screen: CategoryComponent,
 		navigationOptions:({navigation})=> ({
 			headerTitle: 'Add Category ',
 			headerTintColor: styleConstant.textColor,
