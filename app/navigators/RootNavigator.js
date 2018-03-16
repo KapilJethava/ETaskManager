@@ -6,7 +6,7 @@ import { StackNavigator } from 'react-navigation';
 
 import { InternalNavigator } from './InternalNavigator';
 import { styleConstant, globalTokens, Icon} from './../commonModules';
-import CategoryComponent from '../screens/category/category.component';
+import GroupComponent from '../screens/group/group.component';
 
 export const RootNavigator = StackNavigator({
 	Home: {
@@ -26,7 +26,7 @@ export const RootNavigator = StackNavigator({
 		},
 	},
 	AddCategory: {
-		screen: CategoryComponent,
+		screen: GroupComponent,
 		navigationOptions:({navigation})=> ({
 			headerTitle: 'Add Category ',
 			headerTintColor: styleConstant.textColor,

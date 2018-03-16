@@ -5,12 +5,12 @@ import { Image, View, Button, TouchableOpacity } from 'react-native';
 import { _, commonStyles, Icon, styleConstant, categoryColors } from '../../commonModules';
 import { FadeIn } from '../../components/core/animations';
 import { InputComponent } from '../../components/core';
-import { styles, numOfTiles } from './category.style';
+import { styles, numOfTiles } from './group.style';
 import { CategoryModel } from '../../models';
 import { fetchNextPage, filterIcons } from '../../actions';
 import { TileListComponent } from '../../components';
 
-class CategoryComponent extends React.Component {
+class GroupComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -131,4 +131,4 @@ function mapDispatchToProps(dispatch) {
 		filterIcons: (text) => dispatch(filterIcons(text))
 	}
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(GroupComponent);
