@@ -1,14 +1,14 @@
 
 export class CategoryModel {
 	/**
-	 * @param {uniqueIdentifier} key - unique identifier for object
+	 * @param {uniqueIdentifier} id - unique identifier for object
 	 * @param {string} name - name of the category/tak group
 	 * @param {string} iconName - category/task group icon
 	 * @param {string<color>} color - color of icon for category
 	 * @param {Arra<int>} taskIds - array of all those task Ids where category Id is current category Id
 	 */
-	constructor(key, name, iconName, color, taskIds = []) {
-		this.key = key;
+	constructor(id = 0, name = '', iconName = '', color = '', taskIds = []) {
+		this.id = id;
 		this.name = name;
 		this.iconName = iconName;
 		this.color = color;
