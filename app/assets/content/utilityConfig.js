@@ -1,5 +1,5 @@
 export const iconNames = require('./../../../node_modules/react-native-vector-icons/glyphmaps/MaterialIcons.json');
-export const categoryColors = [
+export const colorsForGroups = [
 	'rgb(244, 67, 54)',
 	'rgb(229, 57, 53)',
 	'rgb(211, 47, 47)',

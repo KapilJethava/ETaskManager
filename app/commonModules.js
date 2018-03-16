@@ -4,7 +4,7 @@
  */
 import { commonStyles } from './assets/styles/sharedStyles';
 import {
-	categoryColors,
+	colorsForGroups,
 	globalTokens,
 	iconNames,
 	layoutAttrib,
@@ -20,7 +20,7 @@ const iconList = _.clone(Object.keys(iconNames));
 export {
 	_,
 	ActionButton,
-	categoryColors,
+	colorsForGroups,
 	commonStyles,
 	globalTokens,
 	Icon,

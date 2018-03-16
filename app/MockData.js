@@ -1,15 +1,15 @@
-import {CategoryModel, TaskModel} from './models';
+import {GroupModel, TaskModel} from './models';
 
 export const mockData = {
-	catList: [
-		new CategoryModel(1, 'Home', 'home', 'rgb(66, 133, 244)'),
-		new CategoryModel(2, 'Work', 'work', 'rgb(235, 67, 53)'),
-		new CategoryModel(3, 'Call', 'call', 'rgb(52, 168, 83)'),
-		new CategoryModel(4, 'Billing', 'payment', '#E91E63'),
-		new CategoryModel(5, 'Home', 'home', '#00695C'),
-		new CategoryModel(6, 'Work', 'work', '#424242'),
-		new CategoryModel(7, 'Call', 'call', '#37474F'),
-		new CategoryModel(8, 'Billing', 'payment', '#D84315')
+	groups: [
+		new GroupModel(1, 'Home', 'home', 'rgb(66, 133, 244)'),
+		new GroupModel(2, 'Work', 'work', 'rgb(235, 67, 53)'),
+		new GroupModel(3, 'Call', 'call', 'rgb(52, 168, 83)'),
+		new GroupModel(4, 'Billing', 'payment', '#E91E63'),
+		new GroupModel(5, 'Home', 'home', '#00695C'),
+		new GroupModel(6, 'Work', 'work', '#424242'),
+		new GroupModel(7, 'Call', 'call', '#37474F'),
+		new GroupModel(8, 'Billing', 'payment', '#D84315')
 	],
 	taskList: [
 		new TaskModel(1, 'Pick your son from school', 'Pick your son from school', '10:00 AM', 1, 1),

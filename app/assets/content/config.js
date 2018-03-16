@@ -9,9 +9,9 @@ export const styleConstant = {
 	tabNameFontSize: 15,
 	appNameFontSize: 20,
 	addTaskButtonColor: '#106bc8',
-	addCategoryButtonColor: 'rgba(231,76,60,1)',
+	addGroupButtonColor: 'rgba(231,76,60,1)',
 	addTaskIconName: 'playlist-add',
-	addCategoryIconName: 'library-add',
+	addGroupIconName: 'library-add',
 };
 export const layoutAttrib = {
 	width: Dimensions.get('window').width,

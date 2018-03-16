@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Image, View, Button, TouchableOpacity } from 'react-native';
 
-import { _, commonStyles, Icon, styleConstant, categoryColors } from '../../commonModules';
+import { _, commonStyles, Icon, styleConstant, colorsForGroups } from '../../commonModules';
 import { FadeIn } from '../../components/core/animations';
 import { InputComponent } from '../../components/core';
 import { styles, numOfTiles } from './group.style';
-import { CategoryModel } from '../../models';
+import { GroupModel } from '../../models';
 import { fetchNextPage, filterIcons } from '../../actions';
 import { TileListComponent } from '../../components';
 
@@ -14,14 +14,14 @@ class GroupComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			categoryName: this.props.category.name,
-			color: this.props.category.color,
-			iconName: this.props.category.iconName
+			groupName: this.props.group.name,
+			color: this.props.group.color,
+			iconName: this.props.group.iconName
 		};
 	}
 
 	static defaultProps = {
-		category: new CategoryModel()
+		group: new GroupModel()
 	}
 
 	componentDidMount = () => {
@@ -69,17 +69,18 @@ class GroupComponent extends React.Component {
 	};
 
 	render(){
+		const { navigate } = this.props.navigation;
 		return (
 			<View style={[commonStyles.flex, styles.fcolumn, styles.commonPadding]}>
 				{/* Background image which is stretched to full screen */}
 				<Image source={require('../../assets/images/bg.png')}
 					style={[{ opacity: 0.3 }, commonStyles.stretchToParent]} />
 
-				{/* Category Name text box */}
+				{/* Group Name text box */}
 				<View style={[styles.commonPadding]}>
-					<InputComponent onTextChange={(categoryName) => this.setState({ categoryName })}
-						value={this.state.categoryName}
-						placeholder={'Category Name'} />
+					<InputComponent onTextChange={(groupName) => this.setState({ groupName })}
+						value={this.state.groupName}
+						placeholder={'Group Name'} />
 				</View>
 
 				<View style={[commonStyles.flex]}>
@@ -105,7 +106,7 @@ class GroupComponent extends React.Component {
 							?
 							<TileListComponent
 								renderItem={this.renderColorTile}
-								data={categoryColors}
+								data={colorsForGroups}
 								numColumns={numOfTiles}
 							/>
 							: null

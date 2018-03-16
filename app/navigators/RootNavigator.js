@@ -6,7 +6,7 @@ import { StackNavigator } from 'react-navigation';
 
 import { InternalNavigator } from './InternalNavigator';
 import { styleConstant, globalTokens, Icon} from './../commonModules';
-import GroupComponent from '../screens/group/group.component';
+import { GroupComponent } from '../screens';
 
 export const RootNavigator = StackNavigator({
 	Home: {
@@ -25,10 +25,10 @@ export const RootNavigator = StackNavigator({
 			}
 		},
 	},
-	AddCategory: {
+	AddGroup: {
 		screen: GroupComponent,
 		navigationOptions:({navigation})=> ({
-			headerTitle: 'Add Category ',
+			headerTitle: 'Add Task Group ',
 			headerTintColor: styleConstant.textColor,
 			headerLeft: <Icon name={'arrow-back'} style={{ fontSize: 24, color: styleConstant.textColor, marginLeft: 10 }} onPress={() => { navigation.goBack() }}/>,
 			headerStyle: {

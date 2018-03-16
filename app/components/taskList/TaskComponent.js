@@ -7,15 +7,15 @@ export class TaskComponent extends React.Component {
 		super(props);
 	}
 	render() {
-		const category = this.props.category;
+		const group = this.props.group;
 		return (
 			<View style={[commonStyles.flex,styles.contentWrapper]}>
 				<View>
 					<View
 						style={[commonStyles.stretchToParent, commonStyles.catBgOpacity,
-							{ backgroundColor: category.color}]}></View>
-					<Icon name={category.iconName}
-						style={[styles.catIcon,{color:category.color, borderColor: category.color}]}/>
+							{ backgroundColor: group.color}]}></View>
+					<Icon name={group.iconName}
+						style={[styles.catIcon,{color:group.color, borderColor: group.color}]}/>
 
 				</View>
 				<View style={[commonStyles.flex,styles.taskData]}>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, Button, AppRegistry } from 'react-native';
 import { TabNavigator, TabBarTop } from "react-navigation";
-import { TaskListComponent, CategoryListComponent } from './../components';
-import { styleConstant } from './../commonModules'
+import { TaskListComponent } from './../components';
+import { styleConstant } from './../commonModules';
+import { GroupsComponent } from '../screens';
 
 export const InternalNavigator = TabNavigator({
-	Categories: {
-		screen: CategoryListComponent
+	Groups: {
+		screen: GroupsComponent
 	},
 	Tasks: {
 		screen: TaskListComponent

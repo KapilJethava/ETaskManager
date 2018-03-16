@@ -1,2 +1,2 @@
-export { getCategories } from './category.action';
+export * from './group.action';
 export * from './icon.action';
