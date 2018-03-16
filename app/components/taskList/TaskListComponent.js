@@ -11,10 +11,9 @@ export class TaskListComponent extends React.Component {
 		//folowing block is temporary to set task ids to category object
 		this.categories = {};
 		mockData.catList.forEach((cat)=>{
-			this.categories[cat.key] = cat;
+			this.categories[cat.id] = cat;
 		})
 	}
-
 
 	render() {
 		const { navigate } = this.props.navigation;
