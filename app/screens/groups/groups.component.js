@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { ScrollView, View, FlatList, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
 import { TabWrapperComponent } from '../../components';
-import { commonStyles, Icon, ActionButton, styleConstant, layoutAttrib } from '../../commonModules';
+import { ActionButton, commonStyles, Icon, styleConstant } from '../../commonModules';
 import { getGroups } from '../../actions';
-import {styles} from './groups.style';
+import { styles } from './groups.style';
 
 class GroupsComponent extends React.Component {
 	constructor(props) {
