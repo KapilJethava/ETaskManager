@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Image, View, Button, TouchableOpacity } from 'react-native';
+import { Button, Image, TouchableOpacity, View } from 'react-native';
 
-import { _, commonStyles, Icon, styleConstant, colorsForGroups } from '../../commonModules';
+import { colorsForGroups, commonStyles, Icon, styleConstant } from '../../commonModules';
+import { numOfTiles, styles } from './group.style';
 import { FadeIn } from '../../animations';
-import { InputComponent } from '../../components';
-import { styles, numOfTiles } from './group.style';
+
+import { InputComponent, TileListComponent } from '../../components';
 import { GroupModel } from '../../models';
-import { fetchNextPage, filterIcons } from '../../actions';
-import { TileListComponent } from '../../components';
+import { filterIcons, fetchNextPage } from '../../actions';
 
 class GroupComponent extends React.Component {
 	constructor(props) {
