@@ -1,34 +1,15 @@
-import {StyleSheet} from 'react-native';
-import {styleConstant, layoutAttrib} from '../../commonModules';
+import { StyleSheet } from 'react-native';
+import { styleConstant, Utility } from '../../commonModules';
 
 const constants = {
-	layoutWidth: layoutAttrib.width,
 	minWidth: 60,
 	containerPadding: 3,
 	tileMargin: 2,
-	borderWidth: 1
+	borderWidth: 1,
+	parentBorder: 2
 };
 
-const width = 0;
-const numOfTiles = 5;
-const setWidth = () => {
-	const LWM2PD = (constants.layoutWidth - 2 * constants.containerPadding);
-	const _2MB = 2 * (constants.tileMargin + constants.borderWidth);
-
-	const getTileWidth = () => {
-		// W = ((LW -2PD)/NT) - 2*(M + B) - main container's border width
-		width = Math.floor((LWM2PD / numOfTiles) - _2MB) - 2;
-	}
-
-	const getNoOfTiles = () => {
-		// NT = (LW-2PD)/(2M+2B+W);
-		numOfTiles = Math.floor(LWM2PD / (_2MB + constants.minWidth));
-	}
-
-	getNoOfTiles();
-	getTileWidth();
-}
-setWidth();
+const { width, numOfTiles } = Utility.getItemParams(constants);
 
 const styles = StyleSheet.create({
 	fcolumn: {

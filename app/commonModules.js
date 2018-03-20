@@ -11,6 +11,7 @@ import {
 	priorityEnum,
 	styleConstant
 	} from './assets/content';
+import * as Utility from './utility';
 import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import _ from 'lodash';
@@ -27,5 +28,6 @@ export {
 	iconList,
 	layoutAttrib,
 	priorityEnum,
-	styleConstant
+	styleConstant,
+	Utility
 }

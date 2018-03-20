@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { styleConstant } from '../../commonModules';
+import { styleConstant, Utility } from '../../commonModules';
 
 export const styles = StyleSheet.create({
 	activityIndicatorContainer: {
