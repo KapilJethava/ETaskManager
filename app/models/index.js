@@ -1,2 +1,2 @@
-export { GroupModel } from './Group.model';
-export { TaskModel } from './Task.model';
+export { GroupModel } from './group.model';
+export { TaskModel } from './task.model';
