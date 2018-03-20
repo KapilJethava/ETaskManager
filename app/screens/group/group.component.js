@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Image, View, Button, TouchableOpacity } from 'react-native';
 
 import { _, commonStyles, Icon, styleConstant, colorsForGroups } from '../../commonModules';
-import { FadeIn } from '../../components/core/animations';
-import { InputComponent } from '../../components/core';
+import { FadeIn } from '../../animations';
+import { InputComponent } from '../../components';
 import { styles, numOfTiles } from './group.style';
 import { GroupModel } from '../../models';
 import { fetchNextPage, filterIcons } from '../../actions';
