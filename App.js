@@ -1,22 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import store from './app/store';
 import { RootNavigator } from './app/navigators/RootNavigator';
-//import CategoryComponent from './app/screens/category/category.component';
+//import { TasksComponent } from './app/screens';
 
 
-export default class App extends Component<{}> {
-  render() {
-    return (
-		<Provider store={store}>
-			<RootNavigator />
-		</Provider>
-    );
-  }
+export default class App extends React.Component<{}> {
+	render() {
+		return (
+			<Provider store={store}>
+				<RootNavigator />
+			</Provider>
+		);
+	}
 }
