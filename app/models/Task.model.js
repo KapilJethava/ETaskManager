@@ -1,5 +1,4 @@
-import { priorityEnum } from './../commonModules';
-
+import { priorityEnum } from '../commonModules';
 export class TaskModel {
 	/**
 	 *
@@ -17,12 +16,7 @@ export class TaskModel {
 		this.time = time;
 		this.priorityKey = priority;
 		this.groupId = groupId;
-	}
-	get priority() {
-		return priorityEnum[this.priorityKey];
-	}
-	set priority(value) {
-		this.priorityKey = value;
+		this.priority = priorityEnum[priority];
 	}
 }
 
