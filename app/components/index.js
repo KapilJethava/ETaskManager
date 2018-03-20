@@ -1,8 +1,11 @@
-import { TaskListComponent } from './taskList/TaskListComponent';
+import { InputComponent } from './input/input.component';
+import { TaskComponent } from './task/task.component';
 import { TileListComponent } from './tileList/tilesList.componet';
-import { TabWrapperComponent } from './tabWrapper/TabWrapperComponent';
+import { TabWrapperComponent } from './tabWrapper/tabWrapper.component';
+
 export {
-	TaskListComponent,
+	InputComponent,
+	TaskComponent,
 	TabWrapperComponent,
 	TileListComponent
 }

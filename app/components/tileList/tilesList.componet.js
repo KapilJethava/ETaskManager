@@ -1,6 +1,6 @@
 import React from 'react';
-import { ActivityIndicator, View, FlatList, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
-import { _, commonStyles, Icon, ActionButton, styleConstant, colorsForGroups, iconList, layoutAttrib } from '../../commonModules';
+import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
+import { commonStyles } from '../../commonModules';
 
 export const TileListComponent = (props) => {
 	return (
