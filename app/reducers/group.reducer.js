@@ -11,7 +11,7 @@ const groupReducer = (state = defaultState, action) => {
 			break;
 
 		case GROUP_ACTION.ADD:
-			groups.unshift(action.group);
+			groups.push(action.group);
 			break;
 
 		case GROUP_ACTION.UPDATE:

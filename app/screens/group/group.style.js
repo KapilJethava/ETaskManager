@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
 		paddingTop: 0
 	},
 	headerButton: {
-		color: styleConstant.textColor,
 		borderWidth: 1,
 		borderColor: '#dedede',
 		borderRadius: 2,
-		padding: 2,
-		marginRight: 10
+		padding: 4,
+		marginRight: 10,
+		backgroundColor:'transparent'
 	},
 	tilesContainer: {
 		padding: constants.containerPadding,

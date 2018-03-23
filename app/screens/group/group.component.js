@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Image, TouchableOpacity, View } from 'react-native';
+import { Button, Image, Text, TouchableOpacity, View } from 'react-native';
 
 import { colorsForGroups, commonStyles, Icon, styleConstant } from '../../commonModules';
 import { numOfTiles, styles } from './group.style';
@@ -8,7 +8,7 @@ import { FadeIn } from '../../animations';
 
 import { InputComponent, TileListComponent } from '../../components';
 import { GroupModel } from '../../models';
-import { filterIcons, fetchNextPage } from '../../actions';
+import { addGroup, filterIcons, fetchNextPage } from '../../actions';
 
 class GroupComponent extends React.Component {
 	constructor(props) {
@@ -18,24 +18,44 @@ class GroupComponent extends React.Component {
 			color: this.props.group.color,
 			iconName: this.props.group.iconName
 		};
+		this.groupId = this.props.group.id;
 	}
 
 	static defaultProps = {
 		group: new GroupModel()
 	}
 
+	static navigationOptions = ({ navigation }) => ({
+		headerRight: (
+			<TouchableOpacity onPress={()=>{navigation.state.params.save()}}>
+				<View style={styles.headerButton}>
+					<Text style={{ color: '#fff' }} > ADD </Text>
+				</View>
+			</TouchableOpacity>)
+	});
+
+	save = () => {
+		var state = this.state;
+		var group = new GroupModel(this.groupId, state.groupName, state.iconName, state.color);
+		this.props.addGroup(group);
+		this.props.navigation.goBack();
+	}
+
 	componentDidMount = () => {
+		this.props.navigation.setParams({
+			save: this.save.bind(this)
+		});
 		this.props.fetchNextPage(); //call our action
 	};
 
 	renderIconTile = (icon) => {
 		const iconName = icon.item;
-		const color = this.state.iconName === iconName ? styleConstant.themeColor: '#888';
+		const color = this.state.iconName === iconName ? styleConstant.themeColor : '#888';
 		//const selected = this.props.selected === iconName?styles.selected:null;
 		return (
 			<TouchableOpacity onPress={() => this.setState({ iconName })}>
-				<View style={[styles.iconTile, commonStyles.generalBG, {borderColor: color}]}>
-					<Icon name={iconName} style={[styles.icon, {color: color }]} />
+				<View style={[styles.iconTile, commonStyles.generalBG, { borderColor: color }]}>
+					<Icon name={iconName} style={[styles.icon, { color: color }]} />
 				</View>
 			</TouchableOpacity>
 		);
@@ -68,8 +88,7 @@ class GroupComponent extends React.Component {
 		this.props.fetchNextPage();
 	};
 
-	render(){
-		const { navigate } = this.props.navigation;
+	render() {
 		return (
 			<View style={[commonStyles.flex, styles.fcolumn, styles.commonPadding]}>
 				{/* Background image which is stretched to full screen */}
@@ -99,7 +118,7 @@ class GroupComponent extends React.Component {
 							data={this.props.displayedIcons}
 							onEndReached={this.fetchIcons}
 							numColumns={numOfTiles}
-							loading={this.props.loading}/>
+							loading={this.props.loading} />
 					</View>
 					{
 						(this.state.iconName && this.state.iconName.trim().length != 0)
@@ -129,7 +148,8 @@ function mapStateToProps({ iconReducer }, props) {
 function mapDispatchToProps(dispatch) {
 	return {
 		fetchNextPage: () => dispatch(fetchNextPage()),
-		filterIcons: (text) => dispatch(filterIcons(text))
+		filterIcons: (text) => dispatch(filterIcons(text)),
+		addGroup: (group) => dispatch(addGroup(group))
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GroupComponent);

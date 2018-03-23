@@ -24,7 +24,8 @@ export function getGroups() {
 export function addGroup(group) {
 	return (dispatch) => {
 		getItem(STORAGE.GROUPS, (err, groups) => {
-			groups.unshift(group);
+			group.id = groups.length + 1;
+			groups.push(group);
 			setItem(STORAGE.GROUPS, groups, () => {
 				dispatch({ type: GROUP_ACTION.ADD, group: group });
 			});
