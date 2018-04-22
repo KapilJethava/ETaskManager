@@ -1,5 +1,5 @@
 import { layoutAttrib } from '../commonModules';
-
+import { Alert } from 'react-native';
 export const getItemParams = (params) => {
 	params.layoutWidth = layoutAttrib.width;
 	const LWM2PD = (params.layoutWidth - 2 * params.containerPadding);
@@ -23,4 +23,14 @@ export const getItemParams = (params) => {
 		width,
 		numOfTiles
 	};
+}
+export const alertForInvalidValue = (message) =>{
+	Alert.alert(
+		message,
+		"Invalid Data",
+		[
+			{ text: 'OK', onPress: () => console.log('OK Pressed') },
+		],
+		{ cancelable: false }
+	)
 }
