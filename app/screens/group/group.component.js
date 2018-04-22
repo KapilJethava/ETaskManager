@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Image, Text, TouchableOpacity, View } from 'react-native';
 
-import { colorsForGroups, commonStyles, Icon, styleConstant } from '../../commonModules';
+import { colorsForGroups, commonStyles, Icon, styleConstant, Utility } from '../../commonModules';
 import { numOfTiles, styles } from './group.style';
 import { FadeIn } from '../../animations';
 
 import { InputComponent, TileListComponent } from '../../components';
 import { GroupModel } from '../../models';
-import { addGroup, filterIcons, fetchNextPage } from '../../actions';
+import { addGroup, filterIcons, fetchNextPage, resetFilterState } from '../../actions';
 
 class GroupComponent extends React.Component {
 	constructor(props) {
@@ -19,6 +19,7 @@ class GroupComponent extends React.Component {
 			iconName: this.props.group.iconName
 		};
 		this.groupId = this.props.group.id;
+		this.props.filterText = '';
 	}
 
 	static defaultProps = {
@@ -27,19 +28,42 @@ class GroupComponent extends React.Component {
 
 	static navigationOptions = ({ navigation }) => ({
 		headerRight: (
-			<TouchableOpacity onPress={()=>{navigation.state.params.save()}}>
+			<TouchableOpacity onPress={() => { navigation.state.params.save() }}>
 				<View style={styles.headerButton}>
 					<Text style={{ color: '#fff' }} > ADD </Text>
 				</View>
-			</TouchableOpacity>)
+			</TouchableOpacity>),
+
 	});
 
 	save = () => {
 		var state = this.state;
-		var group = new GroupModel(this.groupId, state.groupName, state.iconName, state.color);
-		this.props.addGroup(group);
-		this.props.navigation.goBack();
+		var group = new GroupModel(this.groupId, state.groupName.trim(), state.iconName, state.color);
+		var msg = this.validateGroup(group);
+
+		if (msg.length === 0) {
+			this.props.addGroup(group);
+			this.props.resetFilterState();
+			this.props.navigation.goBack();
+		} else {
+			Utility.alertForInvalidValue(msg);
+		}
 	}
+
+	validateGroup = (group) => {
+		let errMsg = '';
+		const groupNameRegex = /^[a-zA-Z0-9]{0, }$/;
+		if (group.name.length === 0) {
+			errMsg = 'Please enter a valid group name.';
+		} else if (groupNameRegex.test(group.name)) {
+			errMsg = 'Only alpha numeric characters are allowed as a group name';
+		} else if (group.iconName.length === 0) {
+			errMsg = "Please select an icon for your group";
+		} else if (group.color.length === 0) {
+			errMsg = 'Please select some color tile for your group';
+		}
+		return errMsg;
+	};
 
 	componentDidMount = () => {
 		this.props.navigation.setParams({
@@ -48,8 +72,7 @@ class GroupComponent extends React.Component {
 		this.props.fetchNextPage(); //call our action
 	};
 
-	renderIconTile = (icon) => {
-		const iconName = icon.item;
+	renderIconTile = (iconName) => {
 		const color = this.state.iconName === iconName ? styleConstant.themeColor : '#888';
 		//const selected = this.props.selected === iconName?styles.selected:null;
 		return (
@@ -61,8 +84,7 @@ class GroupComponent extends React.Component {
 		);
 	};
 
-	renderColorTile = (listitem) => {
-		const color = listitem.item;
+	renderColorTile = (color) => {
 		return (
 			<TouchableOpacity onPress={() => this.setState({ color })}>
 				<View style={[styles.iconTile, { borderColor: color }]}>
@@ -114,7 +136,7 @@ class GroupComponent extends React.Component {
 
 						{/* List of icons  */}
 						<TileListComponent
-							renderItem={this.renderIconTile}
+							renderItem={({ item }) => this.renderIconTile(item)}
 							data={this.props.displayedIcons}
 							onEndReached={this.fetchIcons}
 							numColumns={numOfTiles}
@@ -124,7 +146,7 @@ class GroupComponent extends React.Component {
 						(this.state.iconName && this.state.iconName.trim().length != 0)
 							?
 							<TileListComponent
-								renderItem={this.renderColorTile}
+								renderItem={({ item }) => this.renderColorTile(item)}
 								data={colorsForGroups}
 								numColumns={numOfTiles}
 							/>
@@ -149,7 +171,8 @@ function mapDispatchToProps(dispatch) {
 	return {
 		fetchNextPage: () => dispatch(fetchNextPage()),
 		filterIcons: (text) => dispatch(filterIcons(text)),
-		addGroup: (group) => dispatch(addGroup(group))
+		addGroup: (group) => dispatch(addGroup(group)),
+		resetFilterState: () => dispatch(resetFilterState())
 	}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(GroupComponent);
