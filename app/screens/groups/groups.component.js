@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ScrollView, View, FlatList, Text, StyleSheet, ActivityIndicator } from 'react-native';
 
-import { TabWrapperComponent } from '../../components';
+import { TabWrapperComponent, LoadingIndicator } from '../../components';
 import { ActionButton, commonStyles, Icon, styleConstant } from '../../commonModules';
 import { getGroups } from '../../actions';
 import { styles } from './groups.style';
@@ -19,13 +19,7 @@ class GroupsComponent extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		if (this.props.loading) {
-			return (<View style={styles.activityIndicatorContainer}>
-				<ActivityIndicator
-					animating={true}
-					style={[{ height: 80 }]}
-					size="small"
-				/>
-			</View>)
+			return (<LoadingIndicator />);
 		} else {
 			return (
 				<TabWrapperComponent>
