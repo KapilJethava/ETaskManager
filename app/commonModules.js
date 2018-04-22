@@ -12,7 +12,6 @@ import {
 	styleConstant
 	} from './assets/content';
 import * as Utility from './utility';
-import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import _ from 'lodash';
 
@@ -20,7 +19,6 @@ const iconList = _.clone(Object.keys(iconNames));
 
 export {
 	_,
-	ActionButton,
 	colorsForGroups,
 	commonStyles,
 	globalTokens,
