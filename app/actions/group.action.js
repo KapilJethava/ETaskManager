@@ -1,9 +1,11 @@
 import { GROUP_ACTION, STORAGE } from '../constants'
 import { mockData } from '../MockData';
 import { getItem, setItem } from '../utility';
+import { setImmediate } from 'core-js';
 
 export function getGroups() {
 	return (dispatch) => {
+		dispatch({ type: GROUP_ACTION.TOGGLE_INDICATOR, loading: true });
 		getItem(STORAGE.GROUPS, (err, groups) => {
 			if (groups == null) { // Set default groups to device storage for future use
 				groups = mockData.groups;
@@ -16,7 +18,7 @@ export function getGroups() {
 				});
 				setItem(STORAGE.GROUPS, groups);
 			}
-			dispatch({ type: GROUP_ACTION.GET_LIST, groups });
+			setImmediate(() => dispatch({ type: GROUP_ACTION.GET_LIST, groups }))
 		});
 	};
 }
