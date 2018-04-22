@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { ScrollView, View, FlatList, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
-import { TabWrapperComponent, LoadingIndicator } from '../../components';
-import { ActionButton, commonStyles, Icon, styleConstant } from '../../commonModules';
+import { GroupTileComponent, FloatingButton, LoadingIndicator, TabWrapperComponent } from '../../components';
+import { commonStyles, styleConstant } from '../../commonModules';
 import { getGroups } from '../../actions';
 import { styles } from './groups.style';
 
@@ -27,29 +27,14 @@ class GroupsComponent extends React.Component {
 						<View style={styles.groupsContainer}>
 							{
 								this.props.groups.map((group) =>
-									<View style={styles.groupContainer} key={group.id}>
-										<View style={[styles.contentWrapper, { borderColor: group.color }]}>
-											<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: group.color }]}></View>
-											<View style={styles.iconContainer}>
-												<Icon name={group.iconName} style={[styles.catIcon, { color: group.color }]} />
-											</View>
-											<View style={styles.contentContainer}>
-												<Text style={styles.catName}>{group.name}</Text>
-											</View>
-										</View>
-										<View style={[commonStyles.topRightCorner, styles.countContainer]}>
-											<Text style={styles.countText}>{group.taskIds.length + ' Tasks'}</Text>
-										</View>
-									</View>
+									<GroupTileComponent group={group} key={group.id} />
 								)
 							}
 						</View>
 					</ScrollView>
-					<ActionButton buttonColor={styleConstant.addGroupButtonColor}
-						renderIcon={(active) => (<Icon name={styleConstant.addGroupIconName} style={commonStyles.actionButtonIcon} />)}
-						onPress={() =>
-							navigate('AddGroup', {})
-						} />
+					<FloatingButton buttonColor={styleConstant.addGroupButtonColor}
+						icon={{name:styleConstant.addGroupIconName, style: commonStyles.actionButtonIcon}}
+						onPress={() => navigate('AddGroup', {}) } />
 				</TabWrapperComponent>
 			);
 		}
