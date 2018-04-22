@@ -9,14 +9,14 @@ const defaultState = {
 	selected: ''
 };
 
-const iconReducer = (state = defaultState, action) => {
+const iconReducer = (state = _.cloneDeep(defaultState), action) => {
 	var filteredIcons = state.filteredIcons;
 	var page = state.page;
 	var displayedIcons = state.displayedIcons;
 	var filterText = state.filterText;
 	var selected = state.selected;
 
-	function setToNextPage(){
+	function setToNextPage() {
 		const startIndex = page * Values.ICONS_PER_PAGE;
 		const icons = _.slice(filteredIcons, startIndex, startIndex + Values.ICONS_PER_PAGE);
 
@@ -37,7 +37,7 @@ const iconReducer = (state = defaultState, action) => {
 
 			let searTerm = "";
 			filterText = action.text;
-			if (action.text && action.text.length > 0){
+			if (action.text && action.text.length > 0) {
 				searTerm = action.text.trim().toLowerCase();
 			}
 
@@ -50,10 +50,17 @@ const iconReducer = (state = defaultState, action) => {
 		case ICON_ACTION.SELECT_ICONS:
 			selected = action.iconName;
 			break;
+
+		case ICON_ACTION.RESET_STATE:
+			filterText = '';
+			break;
+
 		default:
 			break
 	}
-	state = { displayedIcons, filteredIcons, filterText, page, loading: false, selected };
+	state = action.type === ICON_ACTION.RESET_STATE ?
+		defaultState :
+		{ displayedIcons, filteredIcons, filterText, page, loading: false, selected };
 
 	return state;
 };

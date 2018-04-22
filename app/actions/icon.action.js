@@ -18,3 +18,8 @@ export function selectIcon(iconName) {
 	};
 }
 
+export function resetFilterState() {
+	return (dispatch) => {
+		dispatch({ type: ICON_ACTION.RESET_STATE });
+	};
+}
