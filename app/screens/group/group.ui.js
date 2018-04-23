@@ -7,7 +7,6 @@ import { FadeIn } from '../../animations';
 import { InputComponent, TileListComponent } from '../../components';
 import { GroupBusiness } from './group.bussiness';
 
-
 export class GroupUI extends GroupBusiness{
 	renderIconTile = (iconName) => {
 		const color = this.state.iconName === iconName ? styleConstant.themeColor : '#888';

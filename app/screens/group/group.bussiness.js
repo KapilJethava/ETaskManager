@@ -31,13 +31,6 @@ export class GroupBusiness extends React.Component{
 		return errMsg;
 	};
 
-	componentDidMount = () => {
-		this.props.navigation.setParams({
-			save: this.save.bind(this)
-		});
-		this.props.fetchNextPage(); //call our action
-	};
-
 	fetchIcons = () => {
 		this.props.fetchNextPage();
 	};

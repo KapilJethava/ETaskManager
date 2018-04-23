@@ -21,5 +21,12 @@ export class GroupComponent extends GroupUI {
 	static navigationOptions = ({ navigation }) => ({
 		headerRight: <HeaderButton onPress={() => { navigation.state.params.save() }} />
 	});
+
+	componentDidMount = () => {
+		this.props.navigation.setParams({
+			save: this.save.bind(this)
+		});
+		this.props.fetchNextPage(); //call our action
+	};
 }
 
