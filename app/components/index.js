@@ -1,4 +1,4 @@
-import { GroupTileComponent } from './group-tile/groupTile.component';
+import { GroupTile } from './group-tile/groupTile.component';
 import { InputComponent } from './input/input.component';
 import { TaskComponent } from './task/task.component';
 import { TileListComponent } from './tileList/tilesList.componet';
@@ -10,7 +10,7 @@ import { IconTile } from './icon-tile/icon-tile.component';
 
 export {
 	FloatingButton,
-	GroupTileComponent,
+	GroupTile,
 	HeaderButton,
 	IconTile,
 	InputComponent,

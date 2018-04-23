@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 
-import { GroupTileComponent, FloatingButton, LoadingIndicator, TabWrapperComponent } from '../../components';
+import { GroupTile, FloatingButton, LoadingIndicator, TabWrapperComponent } from '../../components';
 import { commonStyles, styleConstant } from '../../commonModules';
 import { styles } from './groups.style';
 
@@ -25,7 +25,7 @@ export class GroupsComponent extends React.Component {
 						<View style={styles.groupsContainer}>
 							{
 								this.props.groups.map((group) =>
-									<GroupTileComponent group={group} key={group.id} />
+									<GroupTile group={group} key={group.id} />
 								)
 							}
 						</View>
