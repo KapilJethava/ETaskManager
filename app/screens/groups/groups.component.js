@@ -1,13 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { ScrollView, View } from 'react-native';
 
 import { GroupTileComponent, FloatingButton, LoadingIndicator, TabWrapperComponent } from '../../components';
 import { commonStyles, styleConstant } from '../../commonModules';
-import { getGroups } from '../../actions';
 import { styles } from './groups.style';
 
-class GroupsComponent extends React.Component {
+export class GroupsComponent extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -40,16 +38,3 @@ class GroupsComponent extends React.Component {
 		}
 	}
 }
-function mapStateToProps({ groupReducer }, props) {
-	return {
-		groups: groupReducer.groups,
-		loading: groupReducer.loading
-	}
-}
-function mapDispatchToProps(dispatch) {
-	return {
-		getGroups: () => dispatch(getGroups())
-	}
-}
-export default connect(mapStateToProps, mapDispatchToProps)(GroupsComponent);
-
