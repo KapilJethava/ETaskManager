@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+
 import { Button, Image, Text, TouchableOpacity, View } from 'react-native';
 
 import { colorsForGroups, commonStyles, Icon, styleConstant, Utility } from '../../commonModules';
@@ -8,9 +8,9 @@ import { FadeIn } from '../../animations';
 
 import { InputComponent, TileListComponent } from '../../components';
 import { GroupModel } from '../../models';
-import { addGroup, filterIcons, fetchNextPage, resetFilterState } from '../../actions';
 
-class GroupComponent extends React.Component {
+
+export class GroupComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -157,22 +157,4 @@ class GroupComponent extends React.Component {
 		);
 	}
 }
-function mapStateToProps({ iconReducer }, props) {
-	return {
-		displayedIcons: iconReducer.displayedIcons,
-		filteredIcons: iconReducer.filteredIcons,
-		filterText: iconReducer.filterText,
-		page: iconReducer.page,
-		loading: iconReducer.loading,
-		selected: iconReducer.selected
-	}
-}
-function mapDispatchToProps(dispatch) {
-	return {
-		fetchNextPage: () => dispatch(fetchNextPage()),
-		filterIcons: (text) => dispatch(filterIcons(text)),
-		addGroup: (group) => dispatch(addGroup(group)),
-		resetFilterState: () => dispatch(resetFilterState())
-	}
-}
-export default connect(mapStateToProps, mapDispatchToProps)(GroupComponent);
+
