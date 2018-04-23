@@ -9,7 +9,9 @@ export class GroupComponent extends GroupUI {
 		this.state = {
 			groupName: this.props.group.name,
 			color: this.props.group.color,
-			iconName: this.props.group.iconName
+			iconName: this.props.group.iconName,
+			reloadKey: 0,
+			numOfTiles: 5
 		};
 		this.groupId = this.props.group.id;
 		this.props.filterText = '';

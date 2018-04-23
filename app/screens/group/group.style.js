@@ -1,15 +1,16 @@
 import { StyleSheet } from 'react-native';
 import { styleConstant, Utility } from '../../commonModules';
 
-const constants = {
+const styleParams = {
 	minWidth: 60,
 	containerPadding: 3,
 	tileMargin: 2,
 	borderWidth: 1,
-	parentBorder: 2
+	parentBorder: 2,
+	containerMargin: 7
 };
 
-const { width, numOfTiles } = Utility.getItemParams(constants);
+const { width, numOfTiles } = Utility.getItemParams(styleParams);
 
 const styles = StyleSheet.create({
 	fcolumn: {
@@ -19,13 +20,16 @@ const styles = StyleSheet.create({
 		padding: 7
 	},
 	marginBottom: {
-		marginBottom: 7
+		marginBottom: styleParams.containerMargin
+	},
+	marginRight:{
+		marginRight: styleParams.containerMargin
 	},
 	noPadTop: {
 		paddingTop: 0
 	},
 	tilesContainer: {
-		padding: constants.containerPadding,
+		padding: styleParams.containerPadding,
 		justifyContent: 'flex-start'
 	},
 	icon: {
@@ -34,14 +38,12 @@ const styles = StyleSheet.create({
 		backgroundColor: 'transparent'
 	},
 	iconTile: {
-		margin: constants.tileMargin,
-		width: width,
-		height: width,
-		borderWidth: constants.borderWidth,
+		margin: styleParams.tileMargin,
+		borderWidth: styleParams.borderWidth,
 		borderRadius: 3,
 		borderColor: '#dedede',
 		justifyContent: 'center'
 	}
 });
 
-export { width, styles, numOfTiles };
+export { width, styleParams, styles, numOfTiles };

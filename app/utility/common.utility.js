@@ -1,7 +1,7 @@
 import { layoutAttrib } from '../commonModules';
 import { Alert } from 'react-native';
 export const getItemParams = (params) => {
-	params.layoutWidth = layoutAttrib.width;
+	//params.layoutWidth = layoutAttrib.width;
 	const LWM2PD = (params.layoutWidth - 2 * params.containerPadding);
 	const _2MB = 2 * (params.tileMargin + params.borderWidth);
 	var width = params.minWidth, numOfTiles = 0;
@@ -20,7 +20,7 @@ export const getItemParams = (params) => {
 	getTileWidth();
 
 	return {
-		width,
+		tileWidth: width,
 		numOfTiles
 	};
 }
