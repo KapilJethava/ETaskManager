@@ -6,7 +6,7 @@ import { colorsForGroups, commonStyles, Icon, styleConstant, Utility } from '../
 import { numOfTiles, styles } from './group.style';
 import { FadeIn } from '../../animations';
 
-import { InputComponent, TileListComponent } from '../../components';
+import { InputComponent, TileListComponent, HeaderButton } from '../../components';
 import { GroupModel } from '../../models';
 
 
@@ -27,13 +27,7 @@ export class GroupComponent extends React.Component {
 	}
 
 	static navigationOptions = ({ navigation }) => ({
-		headerRight: (
-			<TouchableOpacity onPress={() => { navigation.state.params.save() }}>
-				<View style={styles.headerButton}>
-					<Text style={{ color: '#fff' }} > ADD </Text>
-				</View>
-			</TouchableOpacity>),
-
+		headerRight: <HeaderButton onPress={() => { navigation.state.params.save() }}/>
 	});
 
 	save = () => {

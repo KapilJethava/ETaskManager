@@ -24,14 +24,6 @@ const styles = StyleSheet.create({
 	noPadTop: {
 		paddingTop: 0
 	},
-	headerButton: {
-		borderWidth: 1,
-		borderColor: '#dedede',
-		borderRadius: 2,
-		padding: 4,
-		marginRight: 10,
-		backgroundColor:'transparent'
-	},
 	tilesContainer: {
 		padding: constants.containerPadding,
 		justifyContent: 'flex-start'
