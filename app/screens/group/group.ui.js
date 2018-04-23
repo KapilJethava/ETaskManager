@@ -4,20 +4,14 @@ import { colorsForGroups, commonStyles, Icon, styleConstant, Utility } from '../
 import { numOfTiles, styles } from './group.style';
 import { FadeIn } from '../../animations';
 
-import { InputComponent, TileListComponent } from '../../components';
+import { InputComponent, TileListComponent, IconTile } from '../../components';
 import { GroupBusiness } from './group.bussiness';
 
 export class GroupUI extends GroupBusiness{
 	renderIconTile = (iconName) => {
 		const color = this.state.iconName === iconName ? styleConstant.themeColor : '#888';
-		//const selected = this.props.selected === iconName?styles.selected:null;
-		return (
-			<TouchableOpacity onPress={() => this.setState({ iconName })}>
-				<View style={[styles.iconTile, commonStyles.generalBG, { borderColor: color }]}>
-					<Icon name={iconName} style={[styles.icon, { color: color }]} />
-				</View>
-			</TouchableOpacity>
-		);
+		return (<IconTile color={color} iconName={iconName} onPress={() => this.setState({ iconName })}
+			containerStyle={styles.iconTile} iconStyle={styles.icon} />);
 	};
 
 	renderColorTile = (color) => {
