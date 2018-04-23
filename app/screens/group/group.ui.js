@@ -4,7 +4,7 @@ import { colorsForGroups, commonStyles, Icon, styleConstant, Utility } from '../
 import { numOfTiles, styles } from './group.style';
 import { FadeIn } from '../../animations';
 
-import { InputComponent, TileListComponent, IconTile } from '../../components';
+import { InputComponent, TileListComponent, IconTile, ColorTile } from '../../components';
 import { GroupBusiness } from './group.bussiness';
 
 export class GroupUI extends GroupBusiness{
@@ -16,23 +16,9 @@ export class GroupUI extends GroupBusiness{
 
 	renderColorTile = (color) => {
 		return (
-			<TouchableOpacity onPress={() => this.setState({ color })}>
-				<View style={[styles.iconTile, { borderColor: color }]}>
-					<View style={[commonStyles.generalBG, commonStyles.stretchToParent]} />
-					<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: color }]}></View>
-					<Icon name={this.state.iconName} style={[styles.icon, { color: color }]} />
-					{
-						(this.state.color && this.state.color === color)
-							?
-							<View style={[commonStyles.topRightCorner]}>
-								<FadeIn duration={400}>
-									<Icon name="check" style={{ backgroundColor: 'transparent', color: 'red', fontSize: 40 }} />
-								</FadeIn>
-							</View>
-							: null
-					}
-				</View>
-			</TouchableOpacity>
+			<ColorTile onPress={() => this.setState({ color })}
+				containerStyle={styles.iconTile} iconStyle={styles.icon}
+				color={color} iconName={this.state.iconName} selectedColor={this.state.color}/>
 		);
 	}
 
@@ -83,4 +69,3 @@ export class GroupUI extends GroupBusiness{
 		);
 	}
 }
-

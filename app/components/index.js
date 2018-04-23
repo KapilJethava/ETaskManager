@@ -7,8 +7,10 @@ import { LoadingIndicator } from './loading-indicator/loading-indicator.componen
 import { FloatingButton } from './floating-button/floating-button.component';
 import { HeaderButton } from './header-button/header-button.component';
 import { IconTile } from './icon-tile/icon-tile.component';
+import { ColorTile } from './color-tile/color-tile.component';
 
 export {
+	ColorTile,
 	FloatingButton,
 	GroupTile,
 	HeaderButton,
