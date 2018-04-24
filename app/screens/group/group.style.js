@@ -10,8 +10,6 @@ const styleParams = {
 	containerMargin: 7
 };
 
-const { width, numOfTiles } = Utility.getItemParams(styleParams);
-
 const styles = StyleSheet.create({
 	fcolumn: {
 		flexDirection: 'column',
@@ -46,4 +44,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export { width, styleParams, styles, numOfTiles };
+export { styleParams, styles };
