@@ -8,7 +8,7 @@ import { InputComponent, TileListComponent, IconTile, ColorTile } from '../../co
 import { GroupBusiness } from './group.bussiness';
 
 export class GroupUI extends GroupBusiness {
-	orientationChanged(e) {
+	orientationChanged= (e) => {
 		const { width, height } = Dimensions.get('window')
 		const isLandScape = width >= height;
 		styleParams.layoutWidth = !isLandScape || this.state.iconName == ''? width : Math.round((width-7)/2);
