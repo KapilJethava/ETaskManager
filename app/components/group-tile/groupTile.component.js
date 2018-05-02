@@ -4,7 +4,7 @@ import { commonStyles, Icon, styleConstant } from '../../commonModules';
 
 export const GroupTile = (props) => {
 	return (
-		<View style={styles.groupContainer}>
+		<View style={[styles.groupContainer, {marginLeft: props.margin, marginRight: props.margin}]}>
 			<View style={[styles.contentWrapper, { borderColor: props.group.color }]}>
 				<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: props.group.color }]}></View>
 				<View style={styles.iconContainer}>
@@ -18,12 +18,13 @@ export const GroupTile = (props) => {
 				<Text style={styles.countText}>{props.group.taskIds.length + ' Tasks'}</Text>
 			</View>
 		</View>
-	)
+	);
 }
 
 const styles = StyleSheet.create({
 	groupContainer: {
-		padding: 10
+		padding: 10,
+		margin:5
 	},
 	countContainer: {
 		borderWidth: 1,
