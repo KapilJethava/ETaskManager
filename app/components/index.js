@@ -1,7 +1,7 @@
 import { GroupTile } from './group-tile/groupTile.component';
 import { InputComponent } from './input/input.component';
 import { TaskComponent } from './task/task.component';
-import { TileListComponent } from './tileList/tilesList.componet';
+import { TileListComponent } from './tileList/tilesList.component';
 import { TabWrapperComponent } from './tabWrapper/tabWrapper.component';
 import { LoadingIndicator } from './loading-indicator/loading-indicator.component';
 import { FloatingButton } from './floating-button/floating-button.component';
