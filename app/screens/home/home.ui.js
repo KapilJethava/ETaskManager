@@ -21,7 +21,7 @@ export class HomeUI extends HomeBusiness {
 		});
 
 		this.state.animation.setValue(initialValue);  //Step 3
-		Animated.spring(     //Step 4
+		Animated.spring(//Step 4
 			this.state.animation,
 			{
 				toValue: finalValue
@@ -34,8 +34,15 @@ export class HomeUI extends HomeBusiness {
 	}
 
 	render() {
-		const groupsExpanded = this.state.expand;
-		const iconContainer = this.state.isLandScape ? styles.landscapeICntnr:styles.portraitICntnr;
+		const groupsExpanded = this.state.expanded;
+		var iconContainer;
+		if (this.state.isLandScape) {
+			iconContainer = groupsExpanded ? styles.landscapeExpanded : styles.landscapeCollapsed;
+		} else {
+			iconContainer = groupsExpanded ? styles.portraitExpanded : styles.portraitCollapsed;
+		}
+		console.log(expanded);
+
 		var groupFlex = this.state.animation.interpolate({
 			inputRange: [0, 1],
 			outputRange: [1, 3]
@@ -44,13 +51,13 @@ export class HomeUI extends HomeBusiness {
 			inputRange: [0, 1],
 			outputRange: [0, 9]
 		})
-		var spin = this.state.isLandScape? this.state.animation.interpolate({
+		var spin = this.state.isLandScape ? this.state.animation.interpolate({
 			inputRange: [0, 1],
 			outputRange: ['90deg', '270deg']
-		}): this.state.animation.interpolate({
-				inputRange: [0, 1],
-				outputRange: ['180deg', '0deg']
-			});
+		}) : this.state.animation.interpolate({
+			inputRange: [0, 1],
+			outputRange: ['180deg', '0deg']
+		});
 
 		return (
 			<View style={[commonStyles.flex, { flexDirection: this.state.isLandScape ? 'row-reverse' : 'column-reverse' }]}
@@ -59,8 +66,8 @@ export class HomeUI extends HomeBusiness {
 
 				</Animated.View>
 				<Animated.View style={[{ flex: groupFlex, backgroundColor: 'white' }]}>
-					<Text>{groupsExpanded}</Text>
-					<Animated.View style={[styles.iconContainer, iconContainer, { transform: [{ rotate: spin }]}]}>
+				<Text>{iconContainer}</Text>
+					<Animated.View style={[styles.iconContainer, iconContainer, { transform: [{ rotate: spin }] }]}>
 						<Icon name="arrow-drop-down-circle"
 							style={[styles.icon]}
 							onPress={() => this.expandCollapse()} />

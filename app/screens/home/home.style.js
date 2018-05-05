@@ -6,13 +6,21 @@ export const styles = StyleSheet.create({
 		position:'absolute',
 		backgroundColor: 'transparent'
 	},
-	landscapeICntnr:{
+	landscapeExpanded: {
 		bottom: 12,
-		right: -20,
+		right: 0
 	},
-	portraitICntnr:{
+	landscapeCollapsed: {
+		bottom: 12,
+		right: -20
+	},
+	portraitExpanded: {
+		bottom: 0,
+		right: 10
+	},
+	portraitCollapsed: {
 		bottom: -18,
-		right: 10,
+		right: 10
 	},
 	icon: {
 		fontSize: 35,
