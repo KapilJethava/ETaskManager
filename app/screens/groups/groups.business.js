@@ -1,5 +1,5 @@
 import React from 'react';
 
-export class GroupsBussiness extends React.Component {
+export class GroupsBusiness extends React.Component {
 
 }

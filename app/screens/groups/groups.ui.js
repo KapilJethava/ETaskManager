@@ -4,9 +4,9 @@ import { Dimensions, View } from 'react-native';
 import { GroupTile, FloatingButton, LoadingIndicator, TileListComponent } from '../../components';
 import { commonStyles, styleConstant } from '../../commonModules';
 import { styles } from './groups.style';
-import { GroupsBussiness } from './groups.business';
+import { GroupsBusiness } from './groups.business';
 
-export class GroupsUI extends GroupsBussiness {
+export class GroupsUI extends GroupsBusiness {
 	componentDidMount() {
 		this.props.getGroups();
 	}
