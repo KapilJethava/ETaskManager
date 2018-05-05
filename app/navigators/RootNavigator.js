@@ -6,12 +6,11 @@ import { StackNavigator } from 'react-navigation';
 
 import { InternalNavigator } from './InternalNavigator';
 import { styleConstant, globalTokens, Icon} from './../commonModules';
-import { GroupComponent, GroupsComponent } from '../screens';
-//import { GroupsComponent, TasksComponent } from '../screens';
+import { GroupComponent, GroupsComponent, HomeComponent } from '../screens';
 
 export const RootNavigator = StackNavigator({
 	Home: {
-		screen: GroupsComponent,
+		screen: HomeComponent,
 		navigationOptions: {
 			headerTitle: globalTokens.applicationTitle,
 			headerTintColor: styleConstant.textColor,
