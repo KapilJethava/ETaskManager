@@ -13,8 +13,8 @@ export class HomeUI extends HomeBusiness {
 	}
 
 	expandCollapse() {
-		let initialValue = this.state.expanded ? 1 : 0;
-		finalValue = this.state.expanded ? 0 : 1;
+		let initialValue = this.state.expanded ? 0 : 1;
+		finalValue = this.state.expanded ? 1 : 0;
 
 		this.setState({
 			expanded: !this.state.expanded  //Step 2
@@ -41,7 +41,7 @@ export class HomeUI extends HomeBusiness {
 		} else {
 			iconContainer = groupsExpanded ? styles.portraitExpanded : styles.portraitCollapsed;
 		}
-		console.log(expanded);
+		console.log(groupsExpanded);
 
 		var groupFlex = this.state.animation.interpolate({
 			inputRange: [0, 1],
