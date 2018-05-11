@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dimensions, View } from 'react-native';
-
 import { GroupTile, FloatingButton, LoadingIndicator, TileListComponent } from '../../components';
 import { commonStyles, styleConstant } from '../../commonModules';
 import { styles } from './groups.style';
@@ -21,7 +20,7 @@ export class GroupsUI extends GroupsBusiness {
 	}
 
 	render() {
-		const { navigate } = this.props.navigation;
+		//const { navigate } = this.props.navigation;
 		return (
 			<View style={[commonStyles.flex, styles.commonPadding]}
 				onLayout={this.orientationChanged.bind(this)}>
@@ -32,9 +31,9 @@ export class GroupsUI extends GroupsBusiness {
 					loading={this.props.loading}
 					renderItem={({ item }) => <GroupTile margin={this.state.margin} group={item} key={item.id} />}
 				/>
-				<FloatingButton buttonColor={styleConstant.addGroupButtonColor}
+				{/* <FloatingButton buttonColor={styleConstant.addGroupButtonColor}
 					icon={{ name: styleConstant.addGroupIconName, style: commonStyles.actionButtonIcon }}
-					onPress={() => navigate('AddGroup', {})} />
+					onPress={() => navigate('AddGroup', {})} /> */}
 			</View>
 		);
 	}

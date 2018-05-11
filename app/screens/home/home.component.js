@@ -6,9 +6,13 @@ export class HomeComponent extends HomeUI {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLandScape: false,
 			expanded: true,
-			animation: new Animated.Value(0)
+			numOfTiles: 3,
+			margin: 5,
+			reloadKey: 1,
+			groupTileWidth: 105,
+			isLandScape: false,
+			selectedGroup: null
 		}
 	}
 }

@@ -2,30 +2,49 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { commonStyles, Icon, styleConstant } from '../../commonModules';
 
-export const GroupTile = (props) => {
+export const SelectedGroup = (props) => {
 	return (
-		<TouchableOpacity onPress={() => props.selectGroup(props.group)}
-			style={[styles.groupContainer, {marginLeft: props.margin, marginRight: props.margin}]}>
-			<View style={[styles.contentWrapper, { borderColor: props.group.color }]}>
+		props.group?
+			<View style={[styles.sGroupCntnr, { borderRightColor: props.group.color }]}>
 				<View style={[commonStyles.stretchToParent, commonStyles.catBgOpacity, { backgroundColor: props.group.color }]}></View>
-				<View style={styles.iconContainer}>
-					<Icon name={props.group.iconName} style={[styles.catIcon, { color: props.group.color }]} />
+				<View style={[styles.groupContainer]}>
+					<View style={[styles.contentWrapper]}>
+						<View style={styles.iconContainer}>
+							<Icon name={props.group.iconName} style={[styles.catIcon, { color: props.group.color }]} />
+						</View>
+						<View style={styles.contentContainer}>
+							<Text style={styles.catName}>{props.group.name}</Text>
+						</View>
+					</View>
+					<View style={[commonStyles.topRightCorner, styles.countContainer]}>
+						<Text style={styles.countText}>{props.group.taskIds.length + ' Tasks'}</Text>
+					</View>
 				</View>
-				<View style={styles.contentContainer}>
-					<Text style={styles.catName}>{props.group.name}</Text>
+				<View style={[styles.sOptions, { borderTopColor: props.group.color }]}>
+
 				</View>
 			</View>
-			<View style={[commonStyles.topRightCorner, styles.countContainer]}>
-				<Text style={styles.countText}>{props.group.taskIds.length + ' Tasks'}</Text>
-			</View>
-		</TouchableOpacity>
+
+		:null
 	);
 }
 
 const styles = StyleSheet.create({
+	sGroupCntnr: {
+		//selected group view
+		flex:1,
+		flexDirection: 'column',
+		borderRightWidth: 1
+	},
+	sOptions: {
+		height: 40,
+		backgroundColor:'transparent',
+		borderTopWidth:1
+	},
 	groupContainer: {
 		padding: 10,
-		margin:5
+		margin: 5,
+		flex: 1
 	},
 	countContainer: {
 		borderWidth: 1,
@@ -39,10 +58,7 @@ const styles = StyleSheet.create({
 	},
 	contentWrapper: {
 		flex: 1,
-		flexDirection: 'column',
-		borderWidth: 1,
-		borderColor: '#aaa',
-		borderRadius: 3,
+		flexDirection: 'column'
 	},
 	iconContainer: {
 		flex: 1,
@@ -54,7 +70,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'transparent'
 	},
 	catIcon: {
-		fontSize: 40,
+		fontSize: 45,
 		color: styleConstant.themeColor,
 		borderColor: 'red',
 		alignSelf: 'center'
@@ -62,7 +78,8 @@ const styles = StyleSheet.create({
 	contentContainer: {
 		flex: 1,
 		padding: 5,
-		paddingBottom: 10
+		paddingTop: 10,
+		fontSize:20
 	},
 	catName: {
 		flex: 1,

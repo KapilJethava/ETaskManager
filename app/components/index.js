@@ -8,6 +8,7 @@ import { FloatingButton } from './floating-button/floating-button.component';
 import { HeaderButton } from './header-button/header-button.component';
 import { IconTile } from './icon-tile/icon-tile.component';
 import { ColorTile } from './color-tile/color-tile.component';
+import { SelectedGroup } from './selected-group/selected-group.component';
 
 export {
 	ColorTile,
@@ -17,6 +18,7 @@ export {
 	IconTile,
 	InputComponent,
 	LoadingIndicator,
+	SelectedGroup,
 	TaskComponent,
 	TabWrapperComponent,
 	TileListComponent

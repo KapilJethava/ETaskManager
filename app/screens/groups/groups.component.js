@@ -11,4 +11,9 @@ export class GroupsComponent extends GroupsUI {
 			groupTileWidth: 105
 		};
 	}
+	componentWillReceiveProps() {
+		this.setState({
+			expa: nextProps.likeCount > this.props.likeCount
+		});
+	}
 }

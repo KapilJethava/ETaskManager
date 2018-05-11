@@ -31,6 +31,12 @@ export const commonStyles = StyleSheet.create({
 	flex:{
 		flex:1
 	},
+	fRow:{
+		flexDirection:'row'
+	},
+	fCol: {
+		flexDirection: 'column'
+	},
 	textBox: {
 		fontSize: 18,
 		paddingLeft: 7,
